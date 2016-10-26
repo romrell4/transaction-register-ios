@@ -12,7 +12,7 @@
 
 +(Category *)categoryWithDictionary:(NSDictionary *)dict {
 	Category *me = [[Category alloc] init];
-	me.categoryId = dict[@"categoryId"];
+	me.categoryId = [dict[@"categoryId"] intValue];
 	me.name = dict[@"name"];
 	me.month = dict[@"month"];
 	me.amountBudgeted = [Amount amountWithDouble:[dict[@"amountBudgeted"] doubleValue]];

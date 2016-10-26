@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Error : NSObject
+@interface TXError : NSObject
 
 @property (nonatomic) NSError *error;
 @property (nonatomic) NSString *readableMessage;
 @property (nonatomic) NSString *debugMessage;
+
++(TXError *)errorWithError:(NSError *)error readableMessage:(NSString *)readableMessage andDebugMessage:(NSString *)debugMessage;
 
 @end

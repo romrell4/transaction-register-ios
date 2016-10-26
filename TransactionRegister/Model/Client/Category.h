@@ -11,7 +11,7 @@
 
 @interface Category : NSObject
 
-@property (nonatomic) NSString *categoryId;
+@property (nonatomic) int categoryId;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *month;
 @property (nonatomic) Amount *amountSpent;

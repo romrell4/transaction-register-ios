@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Category.h"
 
+typedef enum {
+	CATEGORY_NAME,
+	MONTH
+} CategoryProperty;
+
 @interface CategoryTableViewCell : UITableViewCell
 
-@property (nonatomic) Category *category;
+@property (nonatomic, readonly) Category *category;
+
+-(void)setCategory:(Category *)category withMainProperty:(CategoryProperty)mainProperty;
 
 @end

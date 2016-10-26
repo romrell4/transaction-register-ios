@@ -6,9 +6,9 @@
 //  Copyright © 2016 Eric Romrell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TXViewController.h"
 
-@interface CategoriesViewController : UIViewController
+@interface CategoriesViewController : TXViewController
 
 
 @end

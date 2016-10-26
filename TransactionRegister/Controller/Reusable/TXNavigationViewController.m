@@ -6,14 +6,14 @@
 //  Copyright © 2016 Eric Romrell. All rights reserved.
 //
 
-#import "DefaultNavigationViewController.h"
+#import "TXNavigationViewController.h"
 #import "UIColor+colors.h"
 
-@interface DefaultNavigationViewController ()
+@interface TXNavigationViewController ()
 
 @end
 
-@implementation DefaultNavigationViewController
+@implementation TXNavigationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

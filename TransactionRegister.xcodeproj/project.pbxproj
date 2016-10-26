@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46491DBE558300937992 /* TransactionsViewController.m */; };
+		071B464D1DBE565000937992 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B464C1DBE565000937992 /* Transaction.m */; };
+		071B46571DBEDCBD00937992 /* TXResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46561DBEDCBD00937992 /* TXResponse.m */; };
+		071B465A1DBF9D4700937992 /* TXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46591DBF9D4700937992 /* TXTableView.m */; };
+		071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46751DC01F6500937992 /* TransactionTableViewCell.m */; };
+		071B46791DC1675800937992 /* TXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46781DC1675800937992 /* TXViewController.m */; };
 		0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */; };
 		0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB531D7CDBA900C22302 /* UIColor+colors.m */; };
-		0734FB581D7CDC2300C22302 /* DefaultNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB571D7CDC2300C22302 /* DefaultNavigationViewController.m */; };
+		0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */; };
 		0734FB641D7CDE6000C22302 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB5F1D7CDE6000C22302 /* Amount.m */; };
 		0734FB651D7CDE6000C22302 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB611D7CDE6000C22302 /* Category.m */; };
 		0734FB661D7CDE6000C22302 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB631D7CDE6000C22302 /* Client.m */; };
-		0734FB691D7CDEBE00C22302 /* Error.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB681D7CDEBE00C22302 /* Error.m */; };
+		0734FB691D7CDEBE00C22302 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB681D7CDEBE00C22302 /* TXError.m */; };
 		0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */; };
 		07901F021DBA719900504A5A /* budget.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F001DBA719900504A5A /* budget.png */; };
 		07901F031DBA719900504A5A /* transactions.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F011DBA719900504A5A /* transactions.png */; };
-		07901F071DBAB14100504A5A /* TransactionRegister@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F051DBAB14100504A5A /* TransactionRegister@3x.png */; };
-		07901F081DBAB14100504A5A /* TransactionRegister@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F061DBAB14100504A5A /* TransactionRegister@2x.png */; };
 		07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1AC1D7C80D0008FE0AF /* main.m */; };
 		07BAF1B01D7C80D0008FE0AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1AF1D7C80D0008FE0AF /* AppDelegate.m */; };
 		07BAF1CA1D7C81FC008FE0AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07BAF1C31D7C81FC008FE0AF /* Assets.xcassets */; };
@@ -28,26 +32,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		071B46481DBE558300937992 /* TransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionsViewController.h; sourceTree = "<group>"; };
+		071B46491DBE558300937992 /* TransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionsViewController.m; sourceTree = "<group>"; };
+		071B464B1DBE565000937992 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		071B464C1DBE565000937992 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
+		071B46551DBEDCBD00937992 /* TXResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXResponse.h; sourceTree = "<group>"; };
+		071B46561DBEDCBD00937992 /* TXResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXResponse.m; sourceTree = "<group>"; };
+		071B46581DBF9D4700937992 /* TXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTableView.h; sourceTree = "<group>"; };
+		071B46591DBF9D4700937992 /* TXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTableView.m; sourceTree = "<group>"; };
+		071B46741DC01F6500937992 /* TransactionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableViewCell.h; sourceTree = "<group>"; };
+		071B46751DC01F6500937992 /* TransactionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableViewCell.m; sourceTree = "<group>"; };
+		071B46771DC1675800937992 /* TXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXViewController.h; sourceTree = "<group>"; };
+		071B46781DC1675800937992 /* TXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXViewController.m; sourceTree = "<group>"; };
 		0734FB4B1D7C90DE00C22302 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewCell.h; sourceTree = "<group>"; };
 		0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewCell.m; sourceTree = "<group>"; };
 		0734FB521D7CDBA900C22302 /* UIColor+colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+colors.h"; sourceTree = "<group>"; };
 		0734FB531D7CDBA900C22302 /* UIColor+colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colors.m"; sourceTree = "<group>"; };
-		0734FB561D7CDC2300C22302 /* DefaultNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultNavigationViewController.h; sourceTree = "<group>"; };
-		0734FB571D7CDC2300C22302 /* DefaultNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultNavigationViewController.m; sourceTree = "<group>"; };
+		0734FB561D7CDC2300C22302 /* TXNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXNavigationViewController.h; sourceTree = "<group>"; };
+		0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXNavigationViewController.m; sourceTree = "<group>"; };
 		0734FB5E1D7CDE6000C22302 /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amount.h; sourceTree = "<group>"; };
 		0734FB5F1D7CDE6000C22302 /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amount.m; sourceTree = "<group>"; };
 		0734FB601D7CDE6000C22302 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		0734FB611D7CDE6000C22302 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		0734FB621D7CDE6000C22302 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		0734FB631D7CDE6000C22302 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
-		0734FB671D7CDEBE00C22302 /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Error.h; sourceTree = "<group>"; };
-		0734FB681D7CDEBE00C22302 /* Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Error.m; sourceTree = "<group>"; };
+		0734FB671D7CDEBE00C22302 /* TXError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXError.h; sourceTree = "<group>"; };
+		0734FB681D7CDEBE00C22302 /* TXError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXError.m; sourceTree = "<group>"; };
 		0734FB6D1D7DFDF000C22302 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		07901F001DBA719900504A5A /* budget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = budget.png; sourceTree = "<group>"; };
 		07901F011DBA719900504A5A /* transactions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transactions.png; sourceTree = "<group>"; };
-		07901F051DBAB14100504A5A /* TransactionRegister@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TransactionRegister@3x.png"; sourceTree = "<group>"; };
-		07901F061DBAB14100504A5A /* TransactionRegister@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TransactionRegister@2x.png"; sourceTree = "<group>"; };
 		07BAF1A81D7C80D0008FE0AF /* TransactionRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07BAF1AC1D7C80D0008FE0AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07BAF1AE1D7C80D0008FE0AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,8 +97,12 @@
 		0734FB551D7CDC2300C22302 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				0734FB561D7CDC2300C22302 /* DefaultNavigationViewController.h */,
-				0734FB571D7CDC2300C22302 /* DefaultNavigationViewController.m */,
+				0734FB561D7CDC2300C22302 /* TXNavigationViewController.h */,
+				0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */,
+				071B46581DBF9D4700937992 /* TXTableView.h */,
+				071B46591DBF9D4700937992 /* TXTableView.m */,
+				071B46771DC1675800937992 /* TXViewController.h */,
+				071B46781DC1675800937992 /* TXViewController.m */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -92,8 +110,10 @@
 		0734FB5C1D7CDE6000C22302 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				0734FB671D7CDEBE00C22302 /* Error.h */,
-				0734FB681D7CDEBE00C22302 /* Error.m */,
+				0734FB671D7CDEBE00C22302 /* TXError.h */,
+				0734FB681D7CDEBE00C22302 /* TXError.m */,
+				071B46551DBEDCBD00937992 /* TXResponse.h */,
+				071B46561DBEDCBD00937992 /* TXResponse.m */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -101,12 +121,14 @@
 		0734FB5D1D7CDE6000C22302 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				0734FB621D7CDE6000C22302 /* Client.h */,
+				0734FB631D7CDE6000C22302 /* Client.m */,
 				0734FB5E1D7CDE6000C22302 /* Amount.h */,
 				0734FB5F1D7CDE6000C22302 /* Amount.m */,
 				0734FB601D7CDE6000C22302 /* Category.h */,
 				0734FB611D7CDE6000C22302 /* Category.m */,
-				0734FB621D7CDE6000C22302 /* Client.h */,
-				0734FB631D7CDE6000C22302 /* Client.m */,
+				071B464B1DBE565000937992 /* Transaction.h */,
+				071B464C1DBE565000937992 /* Transaction.m */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -144,8 +166,6 @@
 		07BAF1C21D7C81FC008FE0AF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				07901F051DBAB14100504A5A /* TransactionRegister@3x.png */,
-				07901F061DBAB14100504A5A /* TransactionRegister@2x.png */,
 				07901F001DBA719900504A5A /* budget.png */,
 				07901F011DBA719900504A5A /* transactions.png */,
 				07BAF1C31D7C81FC008FE0AF /* Assets.xcassets */,
@@ -153,6 +173,8 @@
 				07BAF1C51D7C81FC008FE0AF /* Main.storyboard */,
 				0734FB4B1D7C90DE00C22302 /* CategoryTableViewCell.h */,
 				0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */,
+				071B46741DC01F6500937992 /* TransactionTableViewCell.h */,
+				071B46751DC01F6500937992 /* TransactionTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +187,8 @@
 				07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */,
 				0734FB6D1D7DFDF000C22302 /* CategoryViewController.h */,
 				0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */,
+				071B46481DBE558300937992 /* TransactionsViewController.h */,
+				071B46491DBE558300937992 /* TransactionsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,8 +264,6 @@
 				07901F031DBA719900504A5A /* transactions.png in Resources */,
 				07901F021DBA719900504A5A /* budget.png in Resources */,
 				07BAF1CA1D7C81FC008FE0AF /* Assets.xcassets in Resources */,
-				07901F071DBAB14100504A5A /* TransactionRegister@3x.png in Resources */,
-				07901F081DBAB14100504A5A /* TransactionRegister@2x.png in Resources */,
 				07BAF1CC1D7C81FC008FE0AF /* Main.storyboard in Resources */,
 				07BAF1CB1D7C81FC008FE0AF /* LaunchScreen.storyboard in Resources */,
 			);
@@ -254,17 +276,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0734FB581D7CDC2300C22302 /* DefaultNavigationViewController.m in Sources */,
+				071B46571DBEDCBD00937992 /* TXResponse.m in Sources */,
+				071B465A1DBF9D4700937992 /* TXTableView.m in Sources */,
+				0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */,
 				07BAF1B01D7C80D0008FE0AF /* AppDelegate.m in Sources */,
-				0734FB691D7CDEBE00C22302 /* Error.m in Sources */,
+				071B464D1DBE565000937992 /* Transaction.m in Sources */,
+				0734FB691D7CDEBE00C22302 /* TXError.m in Sources */,
 				0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */,
 				07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */,
 				0734FB651D7CDE6000C22302 /* Category.m in Sources */,
 				07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */,
 				0734FB661D7CDE6000C22302 /* Client.m in Sources */,
+				071B46791DC1675800937992 /* TXViewController.m in Sources */,
 				0734FB641D7CDE6000C22302 /* Amount.m in Sources */,
 				0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */,
 				0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */,
+				071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */,
+				071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

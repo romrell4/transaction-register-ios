@@ -7,13 +7,15 @@
 //
 
 #import "CategoriesViewController.h"
+#import "TXTableView.h"
 #import "Client.h"
 #import "CategoryTableViewCell.h"
 #import "CategoryViewController.h"
 
 @interface CategoriesViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet TXTableView *tableView;
 
 @property (nonatomic) NSArray<Category *> *categories;
 
@@ -24,20 +26,22 @@
 -(void)viewDidLoad {
 	[super viewDidLoad];
 	
-	[Client getAllCurrentCategoriesWithCallback:^(NSArray<Category *> *categories) {
-		if (categories) {
+	[self.spinner startAnimating];
+	[Client getAllCurrentCategoriesWithCallback:^(NSArray<Category *> *categories, TXError *error) {
+		[self.spinner stopAnimating];
+		if (error) {
+			[self showError:error];
+		} else {
 			self.categories = categories;
 			[self.tableView reloadData];
-		} else {
-			UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:DEFAULT_ERROR_MESSAGE preferredStyle:UIAlertControllerStyleAlert];
-			[alert addAction:[UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:nil]];
-			[self presentViewController:alert animated:YES completion:nil];
 		}
 	}];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-	[super viewDidAppear:animated];
+-(void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	self.tabBarController.navigationItem.rightBarButtonItem = nil;
 	
 	[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
 }
@@ -63,7 +67,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-	cell.category = self.categories[indexPath.row];
+	[cell setCategory:self.categories[indexPath.row] withMainProperty:CATEGORY_NAME];
 	return cell;
 }
 

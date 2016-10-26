@@ -6,10 +6,10 @@
 //  Copyright © 2016 Eric Romrell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TXViewController.h"
 #import "Category.h"
 
-@interface CategoryViewController : UIViewController
+@interface CategoryViewController : TXViewController
 
 @property (nonatomic) Category *category;
 

@@ -8,8 +8,13 @@
 
 #import "CategoryViewController.h"
 #import "Client.h"
+#import "TXTableView.h"
+#import "CategoryTableViewCell.h"
 
 @interface CategoryViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet TXTableView *tableView;
 
 @property (nonatomic) NSArray<Category *> *history;
 
@@ -22,17 +27,28 @@
 	
 	self.title = self.category.name;
 	
-//	self.history = [Client ]
+	[self.spinner startAnimating];
+	[Client getHistoryForCategoryId:self.category.categoryId withCallback:^(NSArray<Category *> *history, TXError *error) {
+		[self.spinner stopAnimating];
+		if (error) {
+			[self showError:error];
+		} else {
+			self.history = history;
+			[self.tableView reloadData];
+		}
+	}];
 }
 
 #pragma mark UITableViewDataSource/Delegate callbacks
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 1;
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return self.history.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+	[cell setCategory:self.history[indexPath.row] withMainProperty:MONTH];
+	return cell;
 }
 
 

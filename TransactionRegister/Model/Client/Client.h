@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "Category.h"
-#import "Error.h"
+#import "TXError.h"
+#import "Transaction.h"
 
 #define DEFAULT_ERROR_MESSAGE @"There was an error loading the data from the service. Please talk to your husband about it. :)"
 
 @interface Client : NSObject
 
-+(void)getAllCurrentCategoriesWithCallback:(void (^)(NSArray<Category *> *categories))callback;
-+(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<Category *> *history))callback;
++(void)getAllCurrentCategoriesWithCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
++(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<Category *> *history, TXError *error))callback;
+
++(void)getAllTransactionsThisMonthWithCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
++(void)getAllTransactionsForPaymentType:(PaymentType)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
 
 @end

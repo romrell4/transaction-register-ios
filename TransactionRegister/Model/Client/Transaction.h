@@ -1,0 +1,34 @@
+//
+//  Transaction.h
+//  TransactionRegister
+//
+//  Created by Eric Romrell on 10/24/16.
+//  Copyright © 2016 Eric Romrell. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "Amount.h"
+
+typedef enum PaymentType {
+	CREDIT,
+	DEBIT,
+	SAVINGS,
+	PERMANENT_SAVINGS
+} PaymentType;
+
+@interface Transaction : NSObject
+
+@property (nonatomic) int transactionId;
+@property (nonatomic) PaymentType paymentType;
+@property (nonatomic) NSDate *purchaseDate;
+@property (nonatomic) NSString *business;
+@property (nonatomic) Amount *amount;
+@property (nonatomic) int categoryId;
+@property (nonatomic) NSString *categoryName;
+@property (nonatomic) NSString *desc;
+@property (nonatomic) NSString *updatedBy;
+@property (nonatomic) NSDate *dateTimeUpdated;
+
++(Transaction *)transactionWithDictionary:(NSDictionary *)dict;
+
+@end

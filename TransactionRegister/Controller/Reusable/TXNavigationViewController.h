@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DefaultNavigationViewController : UINavigationController
+@interface TXNavigationViewController : UINavigationController
 
 @end

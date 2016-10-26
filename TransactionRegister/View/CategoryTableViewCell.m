@@ -18,10 +18,18 @@
 
 @implementation CategoryTableViewCell
 
--(void)setCategory:(Category *)category {
-	self.nameLabel.text = category.name;
+-(void)setCategory:(Category *)category withMainProperty:(CategoryProperty)mainProperty {
+	switch (mainProperty) {
+		case CATEGORY_NAME:
+			self.nameLabel.text = category.name;
+			break;
+		case MONTH:
+			self.nameLabel.text = category.month;
+			break;
+	}
+	
 	self.amountSpentLabel.text = [category.amountSpent formattedValue];
-	self.amountSpentLabel.textColor = category.amountSpent.value < 0 ? [UIColor redColor] : [UIColor darkGreenColor];
+	self.amountSpentLabel.textColor = category.amountSpent.value > category.amountBudgeted.value ? [UIColor redColor] : [UIColor darkGreenColor];
 }
 
 @end
