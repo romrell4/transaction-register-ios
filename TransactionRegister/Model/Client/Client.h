@@ -21,4 +21,6 @@
 +(void)getAllTransactionsThisMonthWithCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
 +(void)getAllTransactionsForPaymentType:(PaymentType)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
 
++(void)createTransaction:(Transaction *)tx withCallback:(void (^)(Transaction *tx, TXError *error))callback;
+
 @end

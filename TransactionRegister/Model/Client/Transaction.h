@@ -26,9 +26,9 @@ typedef enum PaymentType {
 @property (nonatomic) int categoryId;
 @property (nonatomic) NSString *categoryName;
 @property (nonatomic) NSString *desc;
-@property (nonatomic) NSString *updatedBy;
-@property (nonatomic) NSDate *dateTimeUpdated;
 
 +(Transaction *)transactionWithDictionary:(NSDictionary *)dict;
+
+-(NSDictionary *)toDictionary;
 
 @end

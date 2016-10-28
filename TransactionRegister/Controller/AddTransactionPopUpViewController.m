@@ -1,0 +1,236 @@
+//
+//  AddTransactionPopUpViewController.m
+//  TransactionRegister
+//
+//  Created by Eric Romrell on 10/27/16.
+//  Copyright © 2016 Eric Romrell. All rights reserved.
+//
+
+#import "AddTransactionPopUpViewController.h"
+#import "Client.h"
+
+@interface AddTransactionPopUpViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomContraint;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *paymentTypeControl;
+@property (weak, nonatomic) IBOutlet UITextField *businessField;
+@property (weak, nonatomic) IBOutlet UITextField *dateField;
+@property (weak, nonatomic) IBOutlet UITextField *amountField;
+@property (weak, nonatomic) IBOutlet UITextField *categoryField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionField;
+
+@property (nonatomic) NSArray<Category *> *categories;
+@property (nonatomic) Category *selectedCategory;
+@property (nonatomic) NSDate *purchaseDate;
+
+@property (nonatomic) UITextField *selectedField;
+
+@end
+
+@implementation AddTransactionPopUpViewController
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+	
+	//Load the picker values from the web service
+	[Client getAllCurrentCategoriesWithCallback:^(NSArray<Category *> *categories, TXError *error) {
+		if (error) {
+			[self showError:error];
+		} else {
+			self.categories = categories;
+			[((UIPickerView *)self.categoryField.inputView) reloadAllComponents];
+		}
+	}];
+	
+	//Listen for when the keyboard enters and exits the screen
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardFrameEndUserInfoKey object:nil];
+	
+	//Setup a special date picker for the keyboard
+	UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+	[datePicker setDatePickerMode:UIDatePickerModeDate];
+	[datePicker addTarget:self action:@selector(dateUpdated:) forControlEvents:UIControlEventValueChanged];
+	self.dateField.inputView = datePicker;
+	
+	//Setup a custom picker view for the categories
+	UIPickerView *categoryPicker = [[UIPickerView alloc] init];
+	categoryPicker.delegate = self;
+	categoryPicker.dataSource = self;
+	self.categoryField.inputView = categoryPicker;
+	
+	//Put toolbars on top of each of the non keyboard fields
+	UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+	UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextTapped)];
+	UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	toolbar.backgroundColor = [UIColor grayColor];
+	toolbar.items = @[flexSpace, nextButton];
+	self.dateField.inputAccessoryView = toolbar;
+	self.amountField.inputAccessoryView = toolbar;
+	self.categoryField.inputAccessoryView = toolbar;
+}
+
+#pragma mark UITextFieldDelegate
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+	self.selectedField = textField;
+	
+	//If it's a picker field, set the text when it is first clicked
+	if (textField == self.dateField) {
+		self.purchaseDate = [NSDate date];
+	
+		NSDateFormatter *format = [[NSDateFormatter alloc] init];
+		[format setDateFormat:@"MM/dd/yyyy"];
+		textField.text = [format stringFromDate:self.purchaseDate];
+	} else if (textField == self.categoryField) {
+		self.selectedCategory = self.categories[0];
+		textField.text = self.selectedCategory.name;
+	}
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+	if ([textField.text isEqualToString:@""] && textField != self.descriptionField) {
+		textField.layer.borderColor = [[UIColor redColor] CGColor];
+		textField.layer.borderWidth = 1;
+	} else {
+		textField.layer.borderWidth = 0;
+	}
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+	NSInteger nextTag = textField.tag + 1;
+	UIResponder *nextResponder = [textField.superview viewWithTag:nextTag];
+	
+	if (nextResponder) {
+		[nextResponder becomeFirstResponder];
+	} else {
+		[textField resignFirstResponder];
+		
+		[self addTapped:nil];
+	}
+	return NO;
+}
+
+#pragma mark UIPickerViewDataSource/Delegate callbacks
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+	return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+	return self.categories.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+	return self.categories[row].name;
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+	self.selectedCategory = self.categories[row];
+	self.categoryField.text = self.selectedCategory.name;
+}
+
+#pragma mark Custom Functions
+
+-(void)nextTapped {
+	[self textFieldShouldReturn:self.selectedField];
+}
+
+-(void)dateUpdated:(UIDatePicker *)picker {
+	self.purchaseDate = picker.date;
+
+	NSDateFormatter *format = [[NSDateFormatter alloc] init];
+	[format setDateFormat:@"MM/dd/yyyy"];
+	self.dateField.text = [format stringFromDate:picker.date];
+}
+
+-(IBAction)addTapped:(id)sender {
+	@try {
+		Transaction *newTx = [self getTransactionIfValid];
+		[self.spinner startAnimating];
+		[Client createTransaction:newTx withCallback:^(Transaction *tx, TXError *error) {
+			[self.spinner stopAnimating];
+			if (error) {
+				[self showError:error];
+			} else {
+				[self dismissPopUp];
+			}
+		}];
+	} @catch (NSException *exception) {
+		NSArray<UITextField *> *errorFields = exception.userInfo[@"errorFields"];
+		for (UITextField *field in errorFields) {
+			field.layer.borderColor = [[UIColor redColor] CGColor];
+			field.layer.borderWidth = 1.0f;
+		}
+	}
+}
+
+-(Transaction *)getTransactionIfValid {
+	NSMutableArray<UITextField *> *errorFields = [NSMutableArray array];
+	
+	Transaction *tx = [[Transaction alloc] init];
+	tx.paymentType = [self getPaymentType];
+	if (![self.businessField.text isEqualToString:@""]) {
+		tx.business = self.businessField.text;
+	} else {
+		[errorFields addObject:self.businessField];
+	}
+	
+	if (self.purchaseDate) {
+		tx.purchaseDate = self.purchaseDate;
+	} else {
+		[errorFields addObject:self.dateField];
+	}
+	
+	if (![self.amountField.text isEqualToString:@""]) {
+		tx.amount = [Amount amountWithDouble:[self.amountField.text doubleValue]];
+	} else {
+		[errorFields addObject:self.amountField];
+	}
+	
+	if (self.selectedCategory) {
+		tx.categoryId = self.selectedCategory.categoryId;
+	} else {
+		[errorFields addObject:self.categoryField];
+	}
+	tx.desc = self.descriptionField.text;
+	
+	if (errorFields.count != 0) {
+		@throw [NSException exceptionWithName:NSInvalidArgumentException reason:nil userInfo:@{@"errorFields": errorFields}];
+	}
+	return tx;
+}
+
+-(PaymentType)getPaymentType {
+	switch (self.paymentTypeControl.selectedSegmentIndex) {
+		case 0:
+			return CREDIT;
+		case 1:
+			return DEBIT;
+		case 2:
+			return SAVINGS;
+		case 3:
+			return PERMANENT_SAVINGS;
+		default:
+			return CREDIT;
+	}
+}
+
+-(IBAction)cancelTapped:(id)sender {
+	[self dismissPopUp];
+}
+
+-(void)dismissPopUp {
+	[self.delegate popUpDismissed];
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)keyboardWillShow:(NSNotification *)notification {
+	self.bottomContraint.constant = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification {
+	self.bottomContraint.constant = 0;
+}
+
+@end

@@ -10,13 +10,18 @@
 #import "Client.h"
 #import "TXTableView.h"
 #import "TransactionTableViewCell.h"
+#import "AddTransactionPopUpViewController.h"
 
-@interface TransactionsViewController () <UITableViewDataSource, UITableViewDelegate>
+#define ADD_TX_ID @"addTransaction"
+
+@interface TransactionsViewController () <UITableViewDataSource, UITableViewDelegate, PopUpDelegate>
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet TXTableView *tableView;
 
 @property (nonatomic) NSArray<Transaction *> *transactions;
+@property (nonatomic) UIView *navBarShade;
+@property (nonatomic) UIView *backgroundShade;
 
 @end
 
@@ -40,9 +45,18 @@
 -(void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
-	self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"plus"] style:UIBarButtonItemStylePlain target:self action:@selector(addTransaction)];
+	self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTransaction)];
 	
 	[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([segue.identifier isEqualToString:ADD_TX_ID]) {
+		AddTransactionPopUpViewController *vc = segue.destinationViewController;
+		vc.delegate = self;
+		vc.providesPresentationContextTransitionStyle = YES;
+		vc.definesPresentationContext = YES;
+	}
 }
 
 #pragma mark UITableViewDataSource/Delegate callbacks
@@ -59,11 +73,29 @@
 	return cell;
 }
 
+#pragma mark PopUpDelegate callback
+
+-(void)popUpDismissed {
+	[self.navBarShade removeFromSuperview];
+	[self.backgroundShade removeFromSuperview];
+}
+
 #pragma mark Custom Functions
 
--(void)addTransaction {
-	//TODO: Add transaction
-	NSLog(@"Adding transaction!");
+-(void)addTransaction {	
+	//Make main navBar faded
+	self.navBarShade = [[UIView alloc] initWithFrame:CGRectMake(0, -20, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height + 20)];
+	self.navBarShade.backgroundColor = [UIColor blackColor];
+	self.navBarShade.alpha = 0.5f;
+	[self.navigationController.navigationBar addSubview:self.navBarShade];
+	
+	//Make main view faded
+	self.backgroundShade = [[UIView alloc] initWithFrame:self.view.frame];
+	self.backgroundShade.backgroundColor = [UIColor blackColor];
+	self.backgroundShade.alpha = 0.5f;
+	[self.view addSubview:self.backgroundShade];
+	
+	[self performSegueWithIdentifier:ADD_TX_ID sender:self];
 }
 
 @end

@@ -13,6 +13,7 @@
 		071B465A1DBF9D4700937992 /* TXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46591DBF9D4700937992 /* TXTableView.m */; };
 		071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46751DC01F6500937992 /* TransactionTableViewCell.m */; };
 		071B46791DC1675800937992 /* TXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46781DC1675800937992 /* TXViewController.m */; };
+		0720E94A1DC2BBFA005243DB /* AddTransactionPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0720E9491DC2BBFA005243DB /* AddTransactionPopUpViewController.m */; };
 		0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */; };
 		0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB531D7CDBA900C22302 /* UIColor+colors.m */; };
 		0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */; };
@@ -44,6 +45,8 @@
 		071B46751DC01F6500937992 /* TransactionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableViewCell.m; sourceTree = "<group>"; };
 		071B46771DC1675800937992 /* TXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXViewController.h; sourceTree = "<group>"; };
 		071B46781DC1675800937992 /* TXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXViewController.m; sourceTree = "<group>"; };
+		0720E9481DC2BBFA005243DB /* AddTransactionPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTransactionPopUpViewController.h; sourceTree = "<group>"; };
+		0720E9491DC2BBFA005243DB /* AddTransactionPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTransactionPopUpViewController.m; sourceTree = "<group>"; };
 		0734FB4B1D7C90DE00C22302 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewCell.h; sourceTree = "<group>"; };
 		0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewCell.m; sourceTree = "<group>"; };
 		0734FB521D7CDBA900C22302 /* UIColor+colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+colors.h"; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */,
 				071B46481DBE558300937992 /* TransactionsViewController.h */,
 				071B46491DBE558300937992 /* TransactionsViewController.m */,
+				0720E9481DC2BBFA005243DB /* AddTransactionPopUpViewController.h */,
+				0720E9491DC2BBFA005243DB /* AddTransactionPopUpViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */,
 				0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */,
 				071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */,
+				0720E94A1DC2BBFA005243DB /* AddTransactionPopUpViewController.m in Sources */,
 				071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
