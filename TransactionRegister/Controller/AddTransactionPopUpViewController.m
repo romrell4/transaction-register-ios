@@ -9,6 +9,8 @@
 #import "AddTransactionPopUpViewController.h"
 #import "Client.h"
 
+#define TOOLBAR_HEIGHT 44
+
 @interface AddTransactionPopUpViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
@@ -34,7 +36,7 @@
     [super viewDidLoad];
 	
 	//Load the picker values from the web service
-	[Client getAllCurrentCategoriesWithCallback:^(NSArray<Category *> *categories, TXError *error) {
+	[Client getAllActiveCategoriesWithCallback:^(NSArray<Category *> *categories, TXError *error) {
 		if (error) {
 			[self showError:error];
 		} else {
@@ -60,14 +62,26 @@
 	self.categoryField.inputView = categoryPicker;
 	
 	//Put toolbars on top of each of the non keyboard fields
-	UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-	UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextTapped)];
-	UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	toolbar.backgroundColor = [UIColor grayColor];
-	toolbar.items = @[flexSpace, nextButton];
+	UIToolbar *toolbar = [self createNextToolbarWithNegative:NO];
 	self.dateField.inputAccessoryView = toolbar;
-	self.amountField.inputAccessoryView = toolbar;
 	self.categoryField.inputAccessoryView = toolbar;
+	
+	UIToolbar *amountToolbar = [self createNextToolbarWithNegative:YES];
+	self.amountField.inputAccessoryView = amountToolbar;
+}
+
+-(UIToolbar *)createNextToolbarWithNegative:(BOOL)negative {
+	UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, TOOLBAR_HEIGHT)];
+	UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextTapped)];
+	toolbar.backgroundColor = [UIColor grayColor];
+	if (negative) {
+		UIBarButtonItem *plusMinusButton = [[UIBarButtonItem alloc] initWithTitle:@"+/-" style:UIBarButtonItemStylePlain target:self action:@selector(togglePositiveNegative)];
+		toolbar.items = @[plusMinusButton, flexSpace, nextButton];
+	} else {
+		toolbar.items = @[flexSpace, nextButton];
+	}
+	return toolbar;
 }
 
 #pragma mark UITextFieldDelegate
@@ -136,6 +150,14 @@
 	[self textFieldShouldReturn:self.selectedField];
 }
 
+-(void)togglePositiveNegative {
+	if ([self.amountField.text rangeOfString:@"-"].location == NSNotFound) {
+		self.amountField.text = [@"-" stringByAppendingString:self.amountField.text];
+	} else {
+		self.amountField.text = [self.amountField.text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+	}
+}
+
 -(void)dateUpdated:(UIDatePicker *)picker {
 	self.purchaseDate = picker.date;
 
@@ -153,7 +175,7 @@
 			if (error) {
 				[self showError:error];
 			} else {
-				[self dismissPopUp];
+				[self dismissPopUpWithChanges:YES];
 			}
 		}];
 	} @catch (NSException *exception) {
@@ -217,11 +239,11 @@
 }
 
 -(IBAction)cancelTapped:(id)sender {
-	[self dismissPopUp];
+	[self dismissPopUpWithChanges:NO];
 }
 
--(void)dismissPopUp {
-	[self.delegate popUpDismissed];
+-(void)dismissPopUpWithChanges:(BOOL)changes {
+	[self.delegate popUpDismissedWithChanges:changes];
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 

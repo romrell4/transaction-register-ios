@@ -13,7 +13,7 @@
 
 @implementation Client
 
-+(void)getAllCurrentCategoriesWithCallback:(void (^)(NSArray<Category *> *, TXError *))callback {
++(void)getBudgetWithCallback:(void (^)(NSArray<Category *> *, TXError *))callback {
 	NSString *url = [NSString stringWithFormat:@"%@/categories?%@", BASE_URL, [self monthAndYear]];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -21,13 +21,20 @@
 		if (response.failed) {
 			callback(nil, response.error);
 		} else {
-			NSArray *categoriesJson = [response getDataJson];
-			
-			NSMutableArray<Category *> *categories = [NSMutableArray arrayWithCapacity:categoriesJson.count];
-			for (NSDictionary *dict in categoriesJson) {
-				[categories addObject:[Category categoryWithDictionary:dict]];
-			}
-			callback(categories, nil);
+			callback([self parseCategoriesFromResponse:response], nil);
+		}
+	}];
+}
+
++(void)getAllActiveCategoriesWithCallback:(void (^)(NSArray<Category *> *, TXError *))callback {
+	NSString *url = [NSString stringWithFormat:@"%@/categories/active", BASE_URL];
+	
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+	[self sendRequest:request withCallback:^(TXResponse *response) {
+		if (response.failed) {
+			callback(nil, response.error);
+		} else {
+			callback([self parseCategoriesFromResponse:response], nil);
 		}
 	}];
 }
@@ -40,19 +47,24 @@
 		if (response.failed) {
 			callback(nil, response.error);
 		} else {
-			NSArray *historyJson = [response getDataJson];
-			
-			NSMutableArray<Category *> *history = [NSMutableArray arrayWithCapacity:historyJson.count];
-			for (NSDictionary *dict in historyJson) {
-				[history addObject:[Category categoryWithDictionary:dict]];
-			}
-			callback(history, nil);
+			callback([self parseCategoriesFromResponse:response], nil);
 		}
 	}];
 }
 
-+(void)getAllTransactionsThisMonthWithCallback:(void (^)(NSArray<Transaction *> *, TXError *))callback {
-	NSString *url = [NSString stringWithFormat:@"%@/transactions?%@", BASE_URL, [self monthAndYear]];
++(NSArray<Category *> *)parseCategoriesFromResponse:(TXResponse *)response {
+	NSArray *categoriesJson = [response getDataJson];
+	
+	NSMutableArray<Category *> *categories = [NSMutableArray arrayWithCapacity:categoriesJson.count];
+	for (NSDictionary *dict in categoriesJson) {
+		[categories addObject:[Category categoryWithDictionary:dict]];
+	}
+	return categories;
+}
+
++(void)getAllTransactionsWithPaymentType:(PaymentType)paymentType withCallback:(void (^)(NSArray<Transaction *> *, TXError *))callback {
+	NSString *paymentTypeParam = (paymentType == NONE) ? @"" : [NSString stringWithFormat:@"&type=%@", [Transaction stringFromPaymentType:paymentType]];
+	NSString *url = [NSString stringWithFormat:@"%@/transactions?%@%@", BASE_URL, [self monthAndYear], paymentTypeParam];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 	[self sendRequest:request withCallback:^(TXResponse *response) {
@@ -75,10 +87,6 @@
 			callback(transactions, nil);
 		}
 	}];
-}
-
-+(void)getAllTransactionsForPaymentType:(PaymentType)paymentType withCallback:(void (^)(NSArray<Transaction *> *, TXError *))callback {
-	
 }
 
 +(void)createTransaction:(Transaction *)tx withCallback:(void (^)(Transaction *, TXError *))callback {

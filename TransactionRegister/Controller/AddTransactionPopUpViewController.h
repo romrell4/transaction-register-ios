@@ -7,17 +7,19 @@
 //
 
 #import "TXViewController.h"
+#import "Transaction.h"
 
 @class AddTransactionPopUpViewController;
 
 @protocol PopUpDelegate
 
--(void)popUpDismissed;
+-(void)popUpDismissedWithChanges:(BOOL)changes;
 
 @end
 
 @interface AddTransactionPopUpViewController : TXViewController
 
 @property (nonatomic) id<PopUpDelegate> delegate;
+@property (nonatomic) PaymentType defaultPaymentType;
 
 @end

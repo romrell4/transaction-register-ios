@@ -27,7 +27,7 @@
 	[super viewDidLoad];
 	
 	[self.spinner startAnimating];
-	[Client getAllCurrentCategoriesWithCallback:^(NSArray<Category *> *categories, TXError *error) {
+	[Client getBudgetWithCallback:^(NSArray<Category *> *categories, TXError *error) {
 		[self.spinner stopAnimating];
 		if (error) {
 			[self showError:error];

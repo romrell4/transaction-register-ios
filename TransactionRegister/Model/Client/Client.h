@@ -15,11 +15,11 @@
 
 @interface Client : NSObject
 
-+(void)getAllCurrentCategoriesWithCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
++(void)getBudgetWithCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
++(void)getAllActiveCategoriesWithCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
 +(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<Category *> *history, TXError *error))callback;
 
-+(void)getAllTransactionsThisMonthWithCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
-+(void)getAllTransactionsForPaymentType:(PaymentType)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
++(void)getAllTransactionsWithPaymentType:(PaymentType)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
 
 +(void)createTransaction:(Transaction *)tx withCallback:(void (^)(Transaction *tx, TXError *error))callback;
 

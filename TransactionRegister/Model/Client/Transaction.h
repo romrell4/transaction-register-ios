@@ -10,6 +10,7 @@
 #import "Amount.h"
 
 typedef enum PaymentType {
+	NONE,
 	CREDIT,
 	DEBIT,
 	SAVINGS,
@@ -28,6 +29,7 @@ typedef enum PaymentType {
 @property (nonatomic) NSString *desc;
 
 +(Transaction *)transactionWithDictionary:(NSDictionary *)dict;
++(NSString *)stringFromPaymentType:(PaymentType)paymentType;
 
 -(NSDictionary *)toDictionary;
 
