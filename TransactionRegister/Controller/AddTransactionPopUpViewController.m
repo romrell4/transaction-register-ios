@@ -49,6 +49,9 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardFrameEndUserInfoKey object:nil];
 	
+	//If there is a default, select it. Otherwise default to the first one
+	self.paymentTypeControl.selectedSegmentIndex = self.defaultPaymentType ? [self.defaultPaymentType orderIndex] : 0;
+	
 	//Setup a special date picker for the keyboard
 	UIDatePicker *datePicker = [[UIDatePicker alloc] init];
 	[datePicker setDatePickerMode:UIDatePickerModeDate];
@@ -191,7 +194,7 @@
 	NSMutableArray<UITextField *> *errorFields = [NSMutableArray array];
 	
 	Transaction *tx = [[Transaction alloc] init];
-	tx.paymentType = [self getPaymentType];
+	tx.paymentType = [PaymentType typeFromIndex:(int) self.paymentTypeControl.selectedSegmentIndex];
 	if (![self.businessField.text isEqualToString:@""]) {
 		tx.business = self.businessField.text;
 	} else {
@@ -221,21 +224,6 @@
 		@throw [NSException exceptionWithName:NSInvalidArgumentException reason:nil userInfo:@{@"errorFields": errorFields}];
 	}
 	return tx;
-}
-
--(PaymentType)getPaymentType {
-	switch (self.paymentTypeControl.selectedSegmentIndex) {
-		case 0:
-			return CREDIT;
-		case 1:
-			return DEBIT;
-		case 2:
-			return SAVINGS;
-		case 3:
-			return PERMANENT_SAVINGS;
-		default:
-			return CREDIT;
-	}
 }
 
 -(IBAction)cancelTapped:(id)sender {

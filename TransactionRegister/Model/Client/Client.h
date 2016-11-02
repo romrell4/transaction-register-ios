@@ -10,16 +10,21 @@
 #import "Category.h"
 #import "TXError.h"
 #import "Transaction.h"
+#import "PaymentTypeSum.h"
 
 #define DEFAULT_ERROR_MESSAGE @"There was an error loading the data from the service. Please talk to your husband about it. :)"
 
 @interface Client : NSObject
 
-+(void)getBudgetWithCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
++(void)getBudgetWithDate:(NSDate *)date andCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
+
 +(void)getAllActiveCategoriesWithCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
+
 +(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<Category *> *history, TXError *error))callback;
 
-+(void)getAllTransactionsWithPaymentType:(PaymentType)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
++(void)getAllTransactionsWithPaymentType:(PaymentType *)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
+
++(void)getPaymentTypeSumsWithCallback:(void (^)(NSArray<PaymentTypeSum *> *sums, TXError *error))callback;
 
 +(void)createTransaction:(Transaction *)tx withCallback:(void (^)(Transaction *tx, TXError *error))callback;
 

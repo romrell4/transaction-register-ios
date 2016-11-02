@@ -12,7 +12,9 @@
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
 	self = [super initWithCoder:aDecoder];
-	self.tableFooterView = [[UIView alloc] init];
+	if (!self.tableFooterView) {
+		self.tableFooterView = [[UIView alloc] init];
+	}
 	return self;
 }
 

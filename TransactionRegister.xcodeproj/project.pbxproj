@@ -22,6 +22,8 @@
 		0734FB661D7CDE6000C22302 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB631D7CDE6000C22302 /* Client.m */; };
 		0734FB691D7CDEBE00C22302 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB681D7CDEBE00C22302 /* TXError.m */; };
 		0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */; };
+		07716B071DC801C300FED949 /* PaymentTypeSum.m in Sources */ = {isa = PBXBuildFile; fileRef = 07716B061DC801C300FED949 /* PaymentTypeSum.m */; };
+		07716B0A1DC8EA2C00FED949 /* PaymentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 07716B091DC8EA2C00FED949 /* PaymentType.m */; };
 		07901F021DBA719900504A5A /* budget.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F001DBA719900504A5A /* budget.png */; };
 		07901F031DBA719900504A5A /* transactions.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F011DBA719900504A5A /* transactions.png */; };
 		07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1AC1D7C80D0008FE0AF /* main.m */; };
@@ -63,6 +65,10 @@
 		0734FB681D7CDEBE00C22302 /* TXError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXError.m; sourceTree = "<group>"; };
 		0734FB6D1D7DFDF000C22302 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		07716B051DC801C300FED949 /* PaymentTypeSum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentTypeSum.h; sourceTree = "<group>"; };
+		07716B061DC801C300FED949 /* PaymentTypeSum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentTypeSum.m; sourceTree = "<group>"; };
+		07716B081DC8EA2C00FED949 /* PaymentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentType.h; sourceTree = "<group>"; };
+		07716B091DC8EA2C00FED949 /* PaymentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentType.m; sourceTree = "<group>"; };
 		07901F001DBA719900504A5A /* budget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = budget.png; sourceTree = "<group>"; };
 		07901F011DBA719900504A5A /* transactions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transactions.png; sourceTree = "<group>"; };
 		07BAF1A81D7C80D0008FE0AF /* TransactionRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +138,10 @@
 				0734FB611D7CDE6000C22302 /* Category.m */,
 				071B464B1DBE565000937992 /* Transaction.h */,
 				071B464C1DBE565000937992 /* Transaction.m */,
+				07716B051DC801C300FED949 /* PaymentTypeSum.h */,
+				07716B061DC801C300FED949 /* PaymentTypeSum.m */,
+				07716B081DC8EA2C00FED949 /* PaymentType.h */,
+				07716B091DC8EA2C00FED949 /* PaymentType.m */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -234,7 +244,7 @@
 		07BAF1A01D7C80D0008FE0AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Eric Romrell";
 				TargetAttributes = {
 					07BAF1A71D7C80D0008FE0AF = {
@@ -285,7 +295,9 @@
 				071B465A1DBF9D4700937992 /* TXTableView.m in Sources */,
 				0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */,
 				07BAF1B01D7C80D0008FE0AF /* AppDelegate.m in Sources */,
+				07716B0A1DC8EA2C00FED949 /* PaymentType.m in Sources */,
 				071B464D1DBE565000937992 /* Transaction.m in Sources */,
+				07716B071DC801C300FED949 /* PaymentTypeSum.m in Sources */,
 				0734FB691D7CDEBE00C22302 /* TXError.m in Sources */,
 				0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */,
 				07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */,
@@ -319,8 +331,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -363,8 +377,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

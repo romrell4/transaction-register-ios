@@ -20,6 +20,6 @@
 @interface AddTransactionPopUpViewController : TXViewController
 
 @property (nonatomic) id<PopUpDelegate> delegate;
-@property (nonatomic) PaymentType defaultPaymentType;
+@property (nonatomic) PaymentType *defaultPaymentType;
 
 @end

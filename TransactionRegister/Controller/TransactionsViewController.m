@@ -22,7 +22,9 @@
 @property (nonatomic) NSArray<Transaction *> *transactions;
 @property (nonatomic) UIView *navBarShade;
 @property (nonatomic) UIView *backgroundShade;
-@property (nonatomic) NSDictionary *currentFilter;
+@property (nonatomic) int countdown;
+@property (nonatomic) NSArray<PaymentTypeSum *> *sums;
+@property (nonatomic) PaymentType *currentFilter;
 
 @end
 
@@ -31,7 +33,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.currentFilter = @{@"name": @"All", @"enum": @(NONE)};
+	self.currentFilter = nil;
 	
 	[self loadData];
 }
@@ -49,7 +51,7 @@
 	if ([segue.identifier isEqualToString:ADD_TX_ID]) {
 		AddTransactionPopUpViewController *vc = segue.destinationViewController;
 		vc.delegate = self;
-		vc.defaultPaymentType = [self.currentFilter[@"enum"] intValue];
+		vc.defaultPaymentType = self.currentFilter;
 		vc.providesPresentationContextTransitionStyle = YES;
 		vc.definesPresentationContext = YES;
 	}
@@ -62,11 +64,13 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	return [NSString stringWithFormat:@"%@ Account Transactions", self.currentFilter[@"name"]];
+	return [NSString stringWithFormat:@"%@ Account Transactions", self.currentFilter ? self.currentFilter.prettyType : @"All"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return self.transactions.count;
+	NSInteger count = self.transactions.count;
+	self.tableView.tableFooterView.hidden = count != 0;
+	return count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,23 +96,15 @@
 
 -(void)filter {
 	UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"What account would you like to filter by?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-	[controller addAction:[UIAlertAction actionWithTitle:@"Credit Card" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-		self.currentFilter = @{@"name": @"Credit Card", @"enum": @(CREDIT)};
-		[self loadData];
-	}]];
+	for (PaymentTypeSum *sum in self.sums) {
+		NSString *title = sum.paymentType.prettyType;
+		[controller addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+			self.currentFilter = sum.paymentType;
+			[self loadData];
+		}]];
+	}
+	[controller addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
 	
-	[controller addAction:[UIAlertAction actionWithTitle:@"Checking" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-		self.currentFilter = @{@"name": @"Checking", @"enum": @(DEBIT)};
-		[self loadData];
-	}]];
-	[controller addAction:[UIAlertAction actionWithTitle:@"Savings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-		self.currentFilter = @{@"name": @"Savings", @"enum": @(SAVINGS)};
-		[self loadData];
-	}]];
-	[controller addAction:[UIAlertAction actionWithTitle:@"Permanent Savings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-		self.currentFilter = @{@"name": @"Permanent Savings", @"enum": @(PERMANENT_SAVINGS)};
-		[self loadData];
-	}]];
 	[self presentViewController:controller animated:YES completion:nil];
 }
 
@@ -129,9 +125,13 @@
 }
 
 -(void)loadData {
+	//Make the "Add" and "Filter" not clickable while loading data
+	self.tabBarController.navigationItem.leftBarButtonItem.enabled = NO;
+	self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
 	[self.spinner startAnimating];
-	[Client getAllTransactionsWithPaymentType:[self.currentFilter[@"enum"] intValue] withCallback:^(NSArray<Transaction *> *transactions, TXError *error) {
-		[self.spinner stopAnimating];
+	self.countdown = 2;
+	[Client getAllTransactionsWithPaymentType:self.currentFilter withCallback:^(NSArray<Transaction *> *transactions, TXError *error) {
+		[self decrementCountdown];
 		if (error) {
 			[self showError:error];
 		} else {
@@ -139,6 +139,22 @@
 			[self.tableView reloadData];
 		}
 	}];
+	[Client getPaymentTypeSumsWithCallback:^(NSArray<PaymentTypeSum *> *sums, TXError *error) {
+		[self decrementCountdown];
+		if (error) {
+			[self showError:error];
+		} else {
+			self.sums = sums;
+		}
+	}];
+}
+
+-(void)decrementCountdown {
+	if (--self.countdown == 0) {
+		[self.spinner stopAnimating];
+		self.tabBarController.navigationItem.leftBarButtonItem.enabled = YES;
+		self.tabBarController.navigationItem.rightBarButtonItem.enabled = YES;
+	}
 }
 
 @end

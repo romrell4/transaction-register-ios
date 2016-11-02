@@ -16,7 +16,7 @@
 
 	Transaction *me = [[self alloc] init];
 	me.transactionId = [dict[@"transationId"] intValue];
-	me.paymentType = [self paymentTypeFromString:dict[@"paymentType"]];
+	me.paymentType = [PaymentType typeWithRealType:dict[@"paymentType"]];
 	me.purchaseDate = [format dateFromString:dict[@"purchaseDate"]];
 	me.business = dict[@"business"];
 	me.amount = [Amount amountWithDouble:[dict[@"amount"] doubleValue]];
@@ -24,16 +24,6 @@
 	me.categoryName = dict[@"categoryName"];
 	me.desc = dict[@"description"];
 	return me;
-}
-
-+(PaymentType)paymentTypeFromString:(NSString *)paymentTypeStr {
-	NSDictionary *enums = @{@"CREDIT": @(CREDIT), @"DEBIT": @(DEBIT), @"SAVINGS": @(SAVINGS), @"PERMANENT_SAVINGS": @(PERMANENT_SAVINGS)};
-	return (int) enums[paymentTypeStr];
-}
-
-+(NSString *)stringFromPaymentType:(PaymentType)paymentType {
-	NSDictionary *enums = @{@(CREDIT): @"CREDIT", @(DEBIT): @"DEBIT", @(SAVINGS): @"SAVINGS", @(PERMANENT_SAVINGS): @"PERMANENT_SAVINGS"};
-	return enums[@(paymentType)];
 }
 
 -(NSDictionary *)toDictionary {
@@ -44,7 +34,7 @@
 	if (self.transactionId) {
 		dict[@"transactionId"] = [NSString stringWithFormat:@"%i", self.transactionId];
 	}
-	dict[@"paymentType"] = [Transaction stringFromPaymentType:self.paymentType];
+	dict[@"paymentType"] = self.paymentType.realType;
 	dict[@"purchaseDate"] = [format stringFromDate:self.purchaseDate];
 	dict[@"business"] = self.business;
 	dict[@"amount"] = [NSString stringWithFormat:@"%f", self.amount.value];

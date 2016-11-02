@@ -29,7 +29,14 @@
 	}
 	
 	self.amountSpentLabel.text = [category.amountSpent formattedValue];
-	self.amountSpentLabel.textColor = category.amountSpent.value > category.amountBudgeted.value ? [UIColor redColor] : [UIColor darkGreenColor];
+	
+	if (!category.amountBudgeted.value) {
+		self.amountSpentLabel.textColor = [UIColor blackColor];
+	} else if (category.amountSpent.value > category.amountBudgeted.value) {
+		self.amountSpentLabel.textColor = [UIColor redColor];
+	} else {
+		self.amountSpentLabel.textColor = [UIColor darkGreenColor];
+	}
 }
 
 @end

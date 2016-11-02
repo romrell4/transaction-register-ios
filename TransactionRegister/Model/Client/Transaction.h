@@ -7,20 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PaymentType.h"
 #import "Amount.h"
-
-typedef enum PaymentType {
-	NONE,
-	CREDIT,
-	DEBIT,
-	SAVINGS,
-	PERMANENT_SAVINGS
-} PaymentType;
 
 @interface Transaction : NSObject
 
 @property (nonatomic) int transactionId;
-@property (nonatomic) PaymentType paymentType;
+@property (nonatomic) PaymentType *paymentType;
 @property (nonatomic) NSDate *purchaseDate;
 @property (nonatomic) NSString *business;
 @property (nonatomic) Amount *amount;
@@ -29,7 +22,6 @@ typedef enum PaymentType {
 @property (nonatomic) NSString *desc;
 
 +(Transaction *)transactionWithDictionary:(NSDictionary *)dict;
-+(NSString *)stringFromPaymentType:(PaymentType)paymentType;
 
 -(NSDictionary *)toDictionary;
 

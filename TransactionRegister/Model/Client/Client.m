@@ -13,8 +13,8 @@
 
 @implementation Client
 
-+(void)getBudgetWithCallback:(void (^)(NSArray<Category *> *, TXError *))callback {
-	NSString *url = [NSString stringWithFormat:@"%@/categories?%@", BASE_URL, [self monthAndYear]];
++(void)getBudgetWithDate:(NSDate *)date andCallback:(void (^)(NSArray<Category *> *, TXError *))callback {
+	NSString *url = [NSString stringWithFormat:@"%@/categories?%@", BASE_URL, [self monthAndYearWithDate:date]];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 	[self sendRequest:request withCallback:^(TXResponse *response) {
@@ -62,9 +62,9 @@
 	return categories;
 }
 
-+(void)getAllTransactionsWithPaymentType:(PaymentType)paymentType withCallback:(void (^)(NSArray<Transaction *> *, TXError *))callback {
-	NSString *paymentTypeParam = (paymentType == NONE) ? @"" : [NSString stringWithFormat:@"&type=%@", [Transaction stringFromPaymentType:paymentType]];
-	NSString *url = [NSString stringWithFormat:@"%@/transactions?%@%@", BASE_URL, [self monthAndYear], paymentTypeParam];
++(void)getAllTransactionsWithPaymentType:(PaymentType *)paymentType withCallback:(void (^)(NSArray<Transaction *> *, TXError *))callback {
+	NSString *paymentTypeParam = paymentType ? [NSString stringWithFormat:@"&type=%@", paymentType.realType] : @"";
+	NSString *url = [NSString stringWithFormat:@"%@/transactions?%@%@", BASE_URL, [self monthAndYearWithDate:[NSDate date]], paymentTypeParam];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 	[self sendRequest:request withCallback:^(TXResponse *response) {
@@ -85,6 +85,28 @@
 				}
 			}];
 			callback(transactions, nil);
+		}
+	}];
+}
+
++(void)getPaymentTypeSumsWithCallback:(void (^)(NSArray<PaymentTypeSum *> *, TXError *))callback {
+	NSString *url = [NSString stringWithFormat:@"%@/transactions/sums", BASE_URL];
+	
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+	[self sendRequest:request withCallback:^(TXResponse *response) {
+		if (response.failed) {
+			callback(nil, response.error);
+		} else {
+			NSArray *sumsJson = [response getDataJson];
+			
+			NSMutableArray<PaymentTypeSum *> *sums = [NSMutableArray arrayWithCapacity:sumsJson.count];
+			for (NSDictionary *dict in sumsJson) {
+				[sums addObject:[PaymentTypeSum sumWithDictionary:dict]];
+			}
+			[sums sortUsingComparator:^NSComparisonResult(PaymentTypeSum *sum1, PaymentTypeSum *sum2) {
+				return [sum1.paymentType compare:sum2.paymentType];
+			}];
+			callback(sums, nil);
 		}
 	}];
 }
@@ -118,10 +140,10 @@
 	}] resume];
 }
 
-+(NSString *)monthAndYear {
++(NSString *)monthAndYearWithDate:(NSDate *)date {
 	NSDateFormatter *format = [[NSDateFormatter alloc] init];
 	[format setDateFormat:@"'month='MM'&year='YYYY"];
-	return [format stringFromDate:[NSDate date]];
+	return [format stringFromDate:date];
 }
 
 @end
