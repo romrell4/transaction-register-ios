@@ -77,13 +77,6 @@
 			for (NSDictionary *dict in transactionsJson) {
 				[transactions addObject:[Transaction transactionWithDictionary:dict]];
 			}
-			[transactions sortUsingComparator:^NSComparisonResult(Transaction *tx1, Transaction *tx2) {
-				if (![tx1.purchaseDate isEqual:tx2.purchaseDate]) {
-					return [tx2.purchaseDate compare:tx1.purchaseDate];
-				} else {
-					return [[NSNumber numberWithInt:tx2.transactionId] compare:[NSNumber numberWithInt:tx1.transactionId]];
-				}
-			}];
 			callback(transactions, nil);
 		}
 	}];

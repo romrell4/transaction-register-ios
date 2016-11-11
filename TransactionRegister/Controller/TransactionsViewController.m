@@ -52,8 +52,6 @@
 		AddTransactionPopUpViewController *vc = segue.destinationViewController;
 		vc.delegate = self;
 		vc.defaultPaymentType = self.currentFilter;
-		vc.providesPresentationContextTransitionStyle = YES;
-		vc.definesPresentationContext = YES;
 	}
 }
 

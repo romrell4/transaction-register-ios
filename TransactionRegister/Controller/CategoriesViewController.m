@@ -89,6 +89,7 @@
 			[self loadDataWithDate:date];
 		}]];
 	}
+	[controller addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
 	[self presentViewController:controller animated:YES completion:nil];
 }
 
