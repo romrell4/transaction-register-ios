@@ -62,9 +62,9 @@
 	return categories;
 }
 
-+(void)getAllTransactionsWithPaymentType:(PaymentType *)paymentType withCallback:(void (^)(NSArray<Transaction *> *, TXError *))callback {
++(void)getAllTransactionsForDate:(NSDate *)date withPaymentType:(PaymentType *)paymentType withCallback:(void (^)(NSArray<Transaction *> *, TXError *))callback {
 	NSString *paymentTypeParam = paymentType ? [NSString stringWithFormat:@"&type=%@", paymentType.realType] : @"";
-	NSString *url = [NSString stringWithFormat:@"%@/transactions?%@%@", BASE_URL, [self monthAndYearWithDate:[NSDate date]], paymentTypeParam];
+	NSString *url = [NSString stringWithFormat:@"%@/transactions?%@%@", BASE_URL, [self monthAndYearWithDate:date], paymentTypeParam];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 	[self sendRequest:request withCallback:^(TXResponse *response) {

@@ -22,7 +22,7 @@
 
 +(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<Category *> *history, TXError *error))callback;
 
-+(void)getAllTransactionsWithPaymentType:(PaymentType *)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
++(void)getAllTransactionsForDate:(NSDate *)date withPaymentType:(PaymentType *)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
 
 +(void)getPaymentTypeSumsWithCallback:(void (^)(NSArray<PaymentTypeSum *> *sums, TXError *error))callback;
 

@@ -127,16 +127,34 @@
 	self.tabBarController.navigationItem.leftBarButtonItem.enabled = NO;
 	self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
 	[self.spinner startAnimating];
-	self.countdown = 2;
-	[Client getAllTransactionsWithPaymentType:self.currentFilter withCallback:^(NSArray<Transaction *> *transactions, TXError *error) {
-		[self decrementCountdown];
+	
+	[self loadTransactionsForDate:[NSDate date]];
+	
+	[self loadSums];
+}
+
+-(void)loadTransactionsForDate:(NSDate *)date {
+	self.countdown++;
+	[Client getAllTransactionsForDate:(NSDate *)date withPaymentType:self.currentFilter withCallback:^(NSArray<Transaction *> *transactions, TXError *error) {
 		if (error) {
 			[self showError:error];
 		} else {
-			self.transactions = transactions;
-			[self.tableView reloadData];
+			if (transactions.count == 0) {
+				NSDateComponents *comp = [[NSDateComponents alloc] init];
+				[comp setMonth:-1];
+				NSDate *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:comp toDate:date options:0];
+				[self loadTransactionsForDate:newDate];
+			} else {
+				self.transactions = transactions;
+				[self.tableView reloadData];
+			}
 		}
+		[self decrementCountdown];
 	}];
+}
+
+-(void)loadSums {
+	self.countdown++;
 	[Client getPaymentTypeSumsWithCallback:^(NSArray<PaymentTypeSum *> *sums, TXError *error) {
 		[self decrementCountdown];
 		if (error) {
