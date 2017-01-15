@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet TXTableView *tableView;
 
+@property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) NSArray<Transaction *> *transactions;
 @property (nonatomic) UIView *navBarShade;
 @property (nonatomic) UIView *backgroundShade;
@@ -34,6 +35,11 @@
     [super viewDidLoad];
 	
 	self.currentFilter = nil;
+	
+	//Add a refresh control to the table view
+	self.refreshControl = [UIRefreshControl new];
+	[self.refreshControl addTarget:self action:@selector(loadData) forControlEvents:UIControlEventValueChanged];
+	[self.tableView addSubview:self.refreshControl];
 	
 	[self loadData];
 }
@@ -62,7 +68,15 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	return [NSString stringWithFormat:@"%@ Account Transactions", self.currentFilter ? self.currentFilter.prettyType : @"All"];
+	//TODO: Maybe create a custom header view in order to right align the total
+	
+	NSString *sumStr = @"";
+	for (PaymentTypeSum *sum in self.sums) {
+		if ([sum.paymentType isEqual:self.currentFilter] || sum.paymentType == self.currentFilter) {
+			sumStr = [NSString stringWithFormat:@" (%@)", sum.total.formattedValue];
+		}
+	}
+	return [NSString stringWithFormat:@"%@ Account Transactions%@", self.currentFilter ? self.currentFilter.prettyType : @"All", sumStr];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -95,7 +109,7 @@
 -(void)filter {
 	UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"What account would you like to filter by?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 	for (PaymentTypeSum *sum in self.sums) {
-		NSString *title = sum.paymentType.prettyType;
+		NSString *title = sum.paymentType ? sum.paymentType.prettyType : @"All";
 		[controller addAction:[UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 			self.currentFilter = sum.paymentType;
 			[self loadData];
@@ -140,13 +154,14 @@
 			[self showError:error];
 		} else {
 			if (transactions.count == 0) {
+				//TODO: Instead, load whenever the bottom is hit
+				//Load the next month's transactions
 				NSDateComponents *comp = [[NSDateComponents alloc] init];
 				[comp setMonth:-1];
 				NSDate *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:comp toDate:date options:0];
 				[self loadTransactionsForDate:newDate];
 			} else {
 				self.transactions = transactions;
-				[self.tableView reloadData];
 			}
 		}
 		[self decrementCountdown];
@@ -160,7 +175,13 @@
 		if (error) {
 			[self showError:error];
 		} else {
-			self.sums = sums;
+			NSMutableArray *mutableSums = [NSMutableArray arrayWithArray:sums];
+			double total = 0;
+			for (PaymentTypeSum *sum in sums) {
+				total += sum.total.value;
+			}
+			[mutableSums addObject:[PaymentTypeSum sumWithAmount:total]];
+			self.sums = mutableSums;
 		}
 	}];
 }
@@ -168,8 +189,10 @@
 -(void)decrementCountdown {
 	if (--self.countdown == 0) {
 		[self.spinner stopAnimating];
+		[self.refreshControl endRefreshing];
 		self.tabBarController.navigationItem.leftBarButtonItem.enabled = YES;
 		self.tabBarController.navigationItem.rightBarButtonItem.enabled = YES;
+		[self.tableView reloadData];
 	}
 }
 

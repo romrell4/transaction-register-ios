@@ -29,6 +29,8 @@
 	self.dateLabel.text = [format stringFromDate:transaction.purchaseDate];
 	self.amountLabel.text = [transaction.amount formattedValue];
 	self.categoryLabel.text = transaction.categoryName;
+	
+	//TODO: Set the cell's color to something if the description is ?
 }
 
 @end

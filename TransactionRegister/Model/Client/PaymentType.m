@@ -52,4 +52,8 @@
 	return NSOrderedSame;
 }
 
+-(NSString *)description {
+	return self.prettyType;
+}
+
 @end

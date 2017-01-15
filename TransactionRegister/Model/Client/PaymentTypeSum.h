@@ -15,5 +15,6 @@
 @property (nonatomic) Amount *total;
 
 +(PaymentTypeSum *)sumWithDictionary:(NSDictionary *)dict;
++(PaymentTypeSum *)sumWithAmount:(double)amount;
 
 @end
