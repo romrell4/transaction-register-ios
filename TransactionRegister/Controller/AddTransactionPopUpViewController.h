@@ -21,7 +21,6 @@
 
 @property (nonatomic) id<PopUpDelegate> delegate;
 @property (nonatomic) PaymentType *defaultPaymentType;
-
-//TODO: Allow the user to pass in a transaction (for editting)
+@property (nonatomic) Transaction *transaction;
 
 @end

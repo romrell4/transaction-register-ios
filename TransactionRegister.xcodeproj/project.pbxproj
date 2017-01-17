@@ -22,6 +22,7 @@
 		0734FB661D7CDE6000C22302 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB631D7CDE6000C22302 /* Client.m */; };
 		0734FB691D7CDEBE00C22302 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB681D7CDEBE00C22302 /* TXError.m */; };
 		0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */; };
+		0756712A1E2D8E62008944CF /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075671291E2D8E62008944CF /* SectionHeaderView.xib */; };
 		07716B071DC801C300FED949 /* PaymentTypeSum.m in Sources */ = {isa = PBXBuildFile; fileRef = 07716B061DC801C300FED949 /* PaymentTypeSum.m */; };
 		07716B0A1DC8EA2C00FED949 /* PaymentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 07716B091DC8EA2C00FED949 /* PaymentType.m */; };
 		07901F021DBA719900504A5A /* budget.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F001DBA719900504A5A /* budget.png */; };
@@ -32,6 +33,7 @@
 		07BAF1CB1D7C81FC008FE0AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BAF1C41D7C81FC008FE0AF /* LaunchScreen.storyboard */; };
 		07BAF1CC1D7C81FC008FE0AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BAF1C51D7C81FC008FE0AF /* Main.storyboard */; };
 		07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */; };
+		07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E734481E2D914400444EB1 /* SectionHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,7 @@
 		0734FB681D7CDEBE00C22302 /* TXError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXError.m; sourceTree = "<group>"; };
 		0734FB6D1D7DFDF000C22302 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		075671291E2D8E62008944CF /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		07716B051DC801C300FED949 /* PaymentTypeSum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentTypeSum.h; sourceTree = "<group>"; };
 		07716B061DC801C300FED949 /* PaymentTypeSum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentTypeSum.m; sourceTree = "<group>"; };
 		07716B081DC8EA2C00FED949 /* PaymentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentType.h; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 		07BAF1C51D7C81FC008FE0AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		07BAF1C71D7C81FC008FE0AF /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
+		07E734471E2D914400444EB1 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
+		07E734481E2D914400444EB1 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +193,9 @@
 				0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */,
 				071B46741DC01F6500937992 /* TransactionTableViewCell.h */,
 				071B46751DC01F6500937992 /* TransactionTableViewCell.m */,
+				075671291E2D8E62008944CF /* SectionHeaderView.xib */,
+				07E734471E2D914400444EB1 /* SectionHeaderView.h */,
+				07E734481E2D914400444EB1 /* SectionHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 			files = (
 				07901F031DBA719900504A5A /* transactions.png in Resources */,
 				07901F021DBA719900504A5A /* budget.png in Resources */,
+				0756712A1E2D8E62008944CF /* SectionHeaderView.xib in Resources */,
 				07BAF1CA1D7C81FC008FE0AF /* Assets.xcassets in Resources */,
 				07BAF1CC1D7C81FC008FE0AF /* Main.storyboard in Resources */,
 				07BAF1CB1D7C81FC008FE0AF /* LaunchScreen.storyboard in Resources */,
@@ -310,6 +319,7 @@
 				0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */,
 				071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */,
 				0720E94A1DC2BBFA005243DB /* AddTransactionPopUpViewController.m in Sources */,
+				07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */,
 				071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

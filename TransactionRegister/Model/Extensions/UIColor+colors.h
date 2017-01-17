@@ -13,5 +13,7 @@
 +(UIColor *)darkGreenColor;
 +(UIColor *)navBarColor;
 +(UIColor *)navBarTintColor;
++(UIColor *)sectionHeaderColor;
++(UIColor *)warningColor;
 
 @end

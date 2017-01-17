@@ -22,4 +22,12 @@
 	return [UIColor colorWithRed:153/255.0 green:255/255.0 blue:153/255.0 alpha:1];
 }
 
++(UIColor *)sectionHeaderColor {
+	return [UIColor colorWithRed:247/255.0 green:247/255.0 blue:247/255.0 alpha:1];
+}
+
++(UIColor *)warningColor {
+	return [UIColor colorWithRed:1 green:1 blue:0 alpha:.25];
+}
+
 @end

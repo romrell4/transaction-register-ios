@@ -11,8 +11,11 @@
 #import "TXTableView.h"
 #import "TransactionTableViewCell.h"
 #import "AddTransactionPopUpViewController.h"
+#import "UIColor+colors.h"
+#import "SectionHeaderView.h"
 
 #define ADD_TX_ID @"addTransaction"
+#define EDIT_TX_ID @"editTransaction"
 
 @interface TransactionsViewController () <UITableViewDataSource, UITableViewDelegate, PopUpDelegate>
 
@@ -49,8 +52,6 @@
 	
 	self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTransaction)];
 	self.tabBarController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(filter)];
-	
-	[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -58,6 +59,10 @@
 		AddTransactionPopUpViewController *vc = segue.destinationViewController;
 		vc.delegate = self;
 		vc.defaultPaymentType = self.currentFilter;
+	} else if ([segue.identifier isEqualToString:EDIT_TX_ID]) {
+		AddTransactionPopUpViewController *vc = segue.destinationViewController;
+		vc.delegate = self;
+		vc.transaction = self.transactions[[self.tableView indexPathForCell:sender].row];
 	}
 }
 
@@ -65,6 +70,23 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+	SectionHeaderView *header = [[NSBundle mainBundle] loadNibNamed:@"SectionHeaderView" owner:self options:nil][0];
+	header.textLabel.text = self.currentFilter.prettyType ?: @"All";
+	NSString *sumStr = @"";
+	for (PaymentTypeSum *sum in self.sums) {
+		if ([sum.paymentType isEqual:self.currentFilter] || sum.paymentType == self.currentFilter) {
+			sumStr = [NSString stringWithFormat:@"%@", sum.total.formattedValue];
+		}
+	}
+	header.detailTextLabel.text = sumStr;
+	return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+	return 30;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -80,9 +102,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSInteger count = self.transactions.count;
-	self.tableView.tableFooterView.hidden = count != 0;
-	return count;
+	return self.transactions.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,6 +111,10 @@
 	TransactionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 	cell.transaction = tx;
 	return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark PopUpDelegate callback
@@ -159,6 +183,8 @@
 				NSDateComponents *comp = [[NSDateComponents alloc] init];
 				[comp setMonth:-1];
 				NSDate *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:comp toDate:date options:0];
+				
+				//This will go into an infinite loop if no transactions are ever found
 				[self loadTransactionsForDate:newDate];
 			} else {
 				self.transactions = transactions;

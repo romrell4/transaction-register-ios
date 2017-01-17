@@ -7,6 +7,7 @@
 //
 
 #import "TransactionTableViewCell.h"
+#import "UIColor+colors.h"
 
 @interface TransactionTableViewCell ()
 
@@ -30,7 +31,10 @@
 	self.amountLabel.text = [transaction.amount formattedValue];
 	self.categoryLabel.text = transaction.categoryName;
 	
-	//TODO: Set the cell's color to something if the description is ?
+	//Set the background color to warn the user that the description isn't finished
+	if ([transaction.description hasPrefix:@"?"]) {
+		self.backgroundColor = [UIColor warningColor];
+	}
 }
 
 @end

@@ -28,4 +28,6 @@
 
 +(void)createTransaction:(Transaction *)tx withCallback:(void (^)(Transaction *tx, TXError *error))callback;
 
++(void)editTransaction:(int)txId withTransaction:(Transaction *)tx andCallback:(void (^)(Transaction *tx, TXError *error))callback;
+
 @end

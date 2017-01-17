@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 
 @property (nonatomic) NSArray<Category *> *categories;
-@property (nonatomic) Category *selectedCategory;
+@property (nonatomic) int selectedCategoryId;
 @property (nonatomic) NSDate *purchaseDate;
 
 @property (nonatomic) UITextField *selectedField;
@@ -34,6 +34,19 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+	
+	if (self.transaction) {
+		NSDateFormatter *dateFormat = [NSDateFormatter new];
+		[dateFormat setDateFormat:@"MM/dd/yyyy"];
+	
+		self.businessField.text = self.transaction.business;
+		self.dateField.text = [dateFormat stringFromDate:self.transaction.purchaseDate];
+		self.purchaseDate = self.transaction.purchaseDate;
+		self.amountField.text = [NSString stringWithFormat:@"%.2f", self.transaction.amount.value];
+		self.categoryField.text = self.transaction.categoryName;
+		self.selectedCategoryId = self.transaction.categoryId;
+		self.descriptionField.text = self.transaction.desc;
+	}
 	
 	//Load the picker values from the web service
 	[Client getAllActiveCategoriesWithCallback:^(NSArray<Category *> *categories, TXError *error) {
@@ -100,8 +113,8 @@
 		[format setDateFormat:@"MM/dd/yyyy"];
 		textField.text = [format stringFromDate:self.purchaseDate];
 	} else if (textField == self.categoryField) {
-		self.selectedCategory = self.categories[0];
-		textField.text = self.selectedCategory.name;
+		self.selectedCategoryId = self.categories[0].categoryId;
+		textField.text = self.categories[0].name;
 	}
 }
 
@@ -123,7 +136,7 @@
 	} else {
 		[textField resignFirstResponder];
 		
-		[self addTapped:nil];
+		[self saveTapped:nil];
 	}
 	return NO;
 }
@@ -143,8 +156,8 @@
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-	self.selectedCategory = self.categories[row];
-	self.categoryField.text = self.selectedCategory.name;
+	self.selectedCategoryId = self.categories[row].categoryId;
+	self.categoryField.text = self.categories[row].name;
 }
 
 #pragma mark Custom Functions
@@ -169,18 +182,23 @@
 	self.dateField.text = [format stringFromDate:picker.date];
 }
 
--(IBAction)addTapped:(id)sender {
+-(IBAction)saveTapped:(id)sender {
 	@try {
 		Transaction *newTx = [self getTransactionIfValid];
 		[self.spinner startAnimating];
-		[Client createTransaction:newTx withCallback:^(Transaction *tx, TXError *error) {
+		void (^callback)() = ^(Transaction *tx, TXError *error) {
 			[self.spinner stopAnimating];
 			if (error) {
 				[self showError:error];
 			} else {
 				[self dismissPopUpWithChanges:YES];
 			}
-		}];
+		};
+		if (self.transaction) {
+			[Client editTransaction:self.transaction.transactionId withTransaction:newTx andCallback:callback];
+		} else {
+			[Client createTransaction:newTx withCallback:callback];
+		}
 	} @catch (NSException *exception) {
 		NSArray<UITextField *> *errorFields = exception.userInfo[@"errorFields"];
 		for (UITextField *field in errorFields) {
@@ -213,8 +231,8 @@
 		[errorFields addObject:self.amountField];
 	}
 	
-	if (self.selectedCategory) {
-		tx.categoryId = self.selectedCategory.categoryId;
+	if (self.selectedCategoryId) {
+		tx.categoryId = self.selectedCategoryId;
 	} else {
 		[errorFields addObject:self.categoryField];
 	}

@@ -120,6 +120,22 @@
 	}];
 }
 
++(void)editTransaction:(int)txId withTransaction:(Transaction *)tx andCallback:(void (^)(Transaction *, TXError *))callback {
+	NSString *url = [NSString stringWithFormat:@"%@/transactions/%i", BASE_URL, txId];
+	
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+	request.HTTPMethod = @"PUT";
+	[request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+	request.HTTPBody = [NSJSONSerialization dataWithJSONObject:[tx toDictionary] options:0 error:nil];
+	[self sendRequest:request withCallback:^(TXResponse *response) {
+		if (response.failed) {
+			callback(nil, response.error);
+		} else {
+			callback([Transaction transactionWithDictionary:[response getDataJson]], nil);
+		}
+	}];
+}
+
 +(void)sendRequest:(NSURLRequest *)request withCallback:(void (^)(TXResponse *response))callback {
 	[[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		[[NSOperationQueue mainQueue] addOperationWithBlock:^{

@@ -15,7 +15,7 @@
 	[format setDateFormat:@"MM/dd/yyyy HH:mm:ss"];
 
 	Transaction *me = [[self alloc] init];
-	me.transactionId = [dict[@"transationId"] intValue];
+	me.transactionId = [dict[@"transactionId"] intValue];
 	me.paymentType = [PaymentType typeWithRealType:dict[@"paymentType"]];
 	me.purchaseDate = [format dateFromString:dict[@"purchaseDate"]];
 	me.business = dict[@"business"];
