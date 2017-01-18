@@ -20,7 +20,6 @@
 	NSNumberFormatter *format = [NSNumberFormatter new];
 	[format setNumberStyle:NSNumberFormatterCurrencyStyle];
 	return [format stringFromNumber:[NSNumber numberWithDouble:self.value]];
-	return [NSString stringWithFormat:@"$%.02f", self.value];
 }
 
 @end
