@@ -18,8 +18,6 @@
 
 -(NSString *)formattedValue {
 	NSNumberFormatter *format = [NSNumberFormatter new];
-	//TODO: Figure out if you like this
-//	[format setNumberStyle:NSNumberFormatterCurrencyAccountingStyle];
 	[format setNumberStyle:NSNumberFormatterCurrencyStyle];
 	return [format stringFromNumber:[NSNumber numberWithDouble:self.value]];
 	return [NSString stringWithFormat:@"$%.02f", self.value];
