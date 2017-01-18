@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "PaymentType.h"
-#import "Amount.h"
+
+@class Amount;
 
 @interface Transaction : NSObject
 

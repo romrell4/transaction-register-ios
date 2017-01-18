@@ -7,24 +7,25 @@
 //
 
 #import "PaymentTypeSum.h"
+#import "TransactionRegister-Swift.h"
 
 @implementation PaymentTypeSum
 
 +(PaymentTypeSum *)sumWithDictionary:(NSDictionary *)dict {
 	PaymentTypeSum *me = [[self alloc] init];
 	me.paymentType = [PaymentType typeWithRealType:dict[@"paymentType"]];
-	me.total = [Amount amountWithDouble:[dict[@"total"] doubleValue]];
+	me.total = [[Amount alloc] initWithValue:[dict[@"total"] doubleValue]];
 	return me;
 }
 
 +(PaymentTypeSum *)sumWithAmount:(double)amount {
 	PaymentTypeSum *me = [[self alloc] init];
-	me.total = [Amount amountWithDouble:amount];
+	me.total = [[Amount alloc] initWithValue:amount];
 	return me;
 }
 
 -(NSString *)description {
-	return [NSString stringWithFormat:@"%@: %@", self.paymentType, self.total.formattedValue];
+	return [NSString stringWithFormat:@"%@: %@", self.paymentType, [self.total formattedValue]];
 }
 
 @end

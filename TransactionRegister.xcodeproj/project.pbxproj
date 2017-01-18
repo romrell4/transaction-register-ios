@@ -17,8 +17,7 @@
 		0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */; };
 		0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB531D7CDBA900C22302 /* UIColor+colors.m */; };
 		0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */; };
-		0734FB641D7CDE6000C22302 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB5F1D7CDE6000C22302 /* Amount.m */; };
-		0734FB651D7CDE6000C22302 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB611D7CDE6000C22302 /* Category.m */; };
+		0734FB651D7CDE6000C22302 /* TXCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB611D7CDE6000C22302 /* TXCategory.m */; };
 		0734FB661D7CDE6000C22302 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB631D7CDE6000C22302 /* Client.m */; };
 		0734FB691D7CDEBE00C22302 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB681D7CDEBE00C22302 /* TXError.m */; };
 		0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */; };
@@ -34,6 +33,7 @@
 		07BAF1CC1D7C81FC008FE0AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BAF1C51D7C81FC008FE0AF /* Main.storyboard */; };
 		07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */; };
 		07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E734481E2D914400444EB1 /* SectionHeaderView.m */; };
+		07E734721E3011F000444EB1 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734711E3011F000444EB1 /* Amount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,10 +57,8 @@
 		0734FB531D7CDBA900C22302 /* UIColor+colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colors.m"; sourceTree = "<group>"; };
 		0734FB561D7CDC2300C22302 /* TXNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXNavigationViewController.h; sourceTree = "<group>"; };
 		0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXNavigationViewController.m; sourceTree = "<group>"; };
-		0734FB5E1D7CDE6000C22302 /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amount.h; sourceTree = "<group>"; };
-		0734FB5F1D7CDE6000C22302 /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amount.m; sourceTree = "<group>"; };
-		0734FB601D7CDE6000C22302 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
-		0734FB611D7CDE6000C22302 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		0734FB601D7CDE6000C22302 /* TXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXCategory.h; sourceTree = "<group>"; };
+		0734FB611D7CDE6000C22302 /* TXCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXCategory.m; sourceTree = "<group>"; };
 		0734FB621D7CDE6000C22302 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		0734FB631D7CDE6000C22302 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
 		0734FB671D7CDEBE00C22302 /* TXError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXError.h; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		07E734471E2D914400444EB1 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
 		07E734481E2D914400444EB1 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransactionRegister-Bridging-Header.h"; sourceTree = "<group>"; };
+		07E734711E3011F000444EB1 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,16 +137,16 @@
 			children = (
 				0734FB621D7CDE6000C22302 /* Client.h */,
 				0734FB631D7CDE6000C22302 /* Client.m */,
-				0734FB5E1D7CDE6000C22302 /* Amount.h */,
-				0734FB5F1D7CDE6000C22302 /* Amount.m */,
-				0734FB601D7CDE6000C22302 /* Category.h */,
-				0734FB611D7CDE6000C22302 /* Category.m */,
+				0734FB601D7CDE6000C22302 /* TXCategory.h */,
+				0734FB611D7CDE6000C22302 /* TXCategory.m */,
 				071B464B1DBE565000937992 /* Transaction.h */,
 				071B464C1DBE565000937992 /* Transaction.m */,
 				07716B051DC801C300FED949 /* PaymentTypeSum.h */,
 				07716B061DC801C300FED949 /* PaymentTypeSum.m */,
 				07716B081DC8EA2C00FED949 /* PaymentType.h */,
 				07716B091DC8EA2C00FED949 /* PaymentType.m */,
+				07E734711E3011F000444EB1 /* Amount.swift */,
+				07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -258,6 +258,7 @@
 					07BAF1A71D7C80D0008FE0AF = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = G9JN5J3VZ9;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -310,11 +311,11 @@
 				0734FB691D7CDEBE00C22302 /* TXError.m in Sources */,
 				0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */,
 				07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */,
-				0734FB651D7CDE6000C22302 /* Category.m in Sources */,
+				0734FB651D7CDE6000C22302 /* TXCategory.m in Sources */,
 				07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */,
+				07E734721E3011F000444EB1 /* Amount.swift in Sources */,
 				0734FB661D7CDE6000C22302 /* Client.m in Sources */,
 				071B46791DC1675800937992 /* TXViewController.m in Sources */,
-				0734FB641D7CDE6000C22302 /* Amount.m in Sources */,
 				0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */,
 				0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */,
 				071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */,
@@ -417,11 +418,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G9JN5J3VZ9;
 				INFOPLIST_FILE = TransactionRegister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.byu.TransactionRegister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TransactionRegister/Model/Client/TransactionRegister-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -429,11 +434,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G9JN5J3VZ9;
 				INFOPLIST_FILE = TransactionRegister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.byu.TransactionRegister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TransactionRegister/Model/Client/TransactionRegister-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

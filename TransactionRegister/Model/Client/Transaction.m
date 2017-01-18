@@ -7,6 +7,7 @@
 //
 
 #import "Transaction.h"
+#import "TransactionRegister-Swift.h"
 
 @implementation Transaction
 
@@ -19,7 +20,7 @@
 	me.paymentType = [PaymentType typeWithRealType:dict[@"paymentType"]];
 	me.purchaseDate = [format dateFromString:dict[@"purchaseDate"]];
 	me.business = dict[@"business"];
-	me.amount = [Amount amountWithDouble:[dict[@"amount"] doubleValue]];
+	me.amount = [[Amount alloc] initWithValue:[dict[@"amount"] doubleValue]];
 	me.categoryId = [dict[@"categoryId"] intValue];
 	me.categoryName = dict[@"categoryName"];
 	me.desc = dict[@"description"];

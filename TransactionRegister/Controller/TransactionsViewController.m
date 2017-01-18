@@ -13,6 +13,7 @@
 #import "AddTransactionPopUpViewController.h"
 #import "UIColor+colors.h"
 #import "SectionHeaderView.h"
+#import "TransactionRegister-Swift.h"
 
 #define ADD_TX_ID @"addTransaction"
 #define EDIT_TX_ID @"editTransaction"

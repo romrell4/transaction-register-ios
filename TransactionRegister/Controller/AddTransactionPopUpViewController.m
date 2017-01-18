@@ -8,6 +8,7 @@
 
 #import "AddTransactionPopUpViewController.h"
 #import "Client.h"
+#import "TransactionRegister-Swift.h"
 
 #define TOOLBAR_HEIGHT 44
 
@@ -22,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *categoryField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 
-@property (nonatomic) NSArray<Category *> *categories;
+@property (nonatomic) NSArray<TXCategory *> *categories;
 @property (nonatomic) int selectedCategoryId;
 @property (nonatomic) NSDate *purchaseDate;
 
@@ -49,7 +50,7 @@
 	}
 	
 	//Load the picker values from the web service
-	[Client getAllActiveCategoriesWithCallback:^(NSArray<Category *> *categories, TXError *error) {
+	[Client getAllActiveCategoriesWithCallback:^(NSArray<TXCategory *> *categories, TXError *error) {
 		if (error) {
 			[self showError:error];
 		} else {
@@ -226,7 +227,7 @@
 	}
 	
 	if (![self.amountField.text isEqualToString:@""]) {
-		tx.amount = [Amount amountWithDouble:[self.amountField.text doubleValue]];
+		tx.amount = [[Amount alloc] initWithValue:[self.amountField.text doubleValue]];
 	} else {
 		[errorFields addObject:self.amountField];
 	}

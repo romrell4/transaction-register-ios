@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Amount.h"
 
-@interface Category : NSObject
+@class Amount;
+
+@interface TXCategory : NSObject
 
 @property (nonatomic) int categoryId;
 @property (nonatomic) NSString *name;
@@ -18,6 +19,6 @@
 @property (nonatomic) Amount *amountLeft;
 @property (nonatomic) Amount *amountBudgeted;
 
-+(Category *)categoryWithDictionary:(NSDictionary *)dict;
++(TXCategory *)categoryWithDictionary:(NSDictionary *)dict;
 
 @end

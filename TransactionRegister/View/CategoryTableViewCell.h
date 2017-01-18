@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Category.h"
+#import "TXCategory.h"
 
 typedef enum {
 	CATEGORY_NAME,
@@ -16,8 +16,8 @@ typedef enum {
 
 @interface CategoryTableViewCell : UITableViewCell
 
-@property (nonatomic, readonly) Category *category;
+@property (nonatomic, readonly) TXCategory *category;
 
--(void)setCategory:(Category *)category withMainProperty:(CategoryProperty)mainProperty;
+-(void)setCategory:(TXCategory *)category withMainProperty:(CategoryProperty)mainProperty;
 
 @end

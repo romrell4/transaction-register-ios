@@ -7,10 +7,10 @@
 //
 
 #import "TXViewController.h"
-#import "Category.h"
+#import "TXCategory.h"
 
 @interface CategoryViewController : TXViewController
 
-@property (nonatomic) Category *category;
+@property (nonatomic) TXCategory *category;
 
 @end

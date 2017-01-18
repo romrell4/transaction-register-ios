@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Category.h"
+#import "TXCategory.h"
 #import "TXError.h"
 #import "Transaction.h"
 #import "PaymentTypeSum.h"
@@ -16,11 +16,11 @@
 
 @interface Client : NSObject
 
-+(void)getBudgetWithDate:(NSDate *)date andCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
++(void)getBudgetWithDate:(NSDate *)date andCallback:(void (^)(NSArray<TXCategory *> *categories, TXError *error))callback;
 
-+(void)getAllActiveCategoriesWithCallback:(void (^)(NSArray<Category *> *categories, TXError *error))callback;
++(void)getAllActiveCategoriesWithCallback:(void (^)(NSArray<TXCategory *> *categories, TXError *error))callback;
 
-+(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<Category *> *history, TXError *error))callback;
++(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<TXCategory *> *history, TXError *error))callback;
 
 +(void)getAllTransactionsForDate:(NSDate *)date withPaymentType:(PaymentType *)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
 

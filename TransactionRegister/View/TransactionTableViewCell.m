@@ -8,6 +8,7 @@
 
 #import "TransactionTableViewCell.h"
 #import "UIColor+colors.h"
+#import "TransactionRegister-Swift.h"
 
 @interface TransactionTableViewCell ()
 
