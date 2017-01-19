@@ -7,7 +7,8 @@
 //
 
 #import "TXViewController.h"
-#import "BudgetCategory.h"
+
+@class BudgetCategory;
 
 @interface CategoryViewController : TXViewController
 

@@ -40,8 +40,8 @@
 	}];
 }
 
-+(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<BudgetCategory *> *, TXError *))callback {
-	NSString *url = [NSString stringWithFormat:@"%@/categories?categoryId=%i", BASE_URL, categoryId];
++(void)getHistoryForCategoryId:(NSInteger)categoryId withCallback:(void (^)(NSArray<BudgetCategory *> *, TXError *))callback {
+	NSString *url = [NSString stringWithFormat:@"%@/categories?categoryId=%i", BASE_URL, (int) categoryId];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 	[self sendRequest:request withCallback:^(TXResponse *response) {
@@ -58,7 +58,7 @@
 	
 	NSMutableArray<BudgetCategory *> *categories = [NSMutableArray arrayWithCapacity:categoriesJson.count];
 	for (NSDictionary *dict in categoriesJson) {
-		[categories addObject:[BudgetCategory categoryWithDictionary:dict]];
+		[categories addObject:[[BudgetCategory alloc] initWithDict:dict]];
 	}
 	return categories;
 }
@@ -121,8 +121,8 @@
 	}];
 }
 
-+(void)editTransaction:(int)txId withTransaction:(Transaction *)tx andCallback:(void (^)(Transaction *, TXError *))callback {
-	NSString *url = [NSString stringWithFormat:@"%@/transactions/%i", BASE_URL, txId];
++(void)editTransaction:(NSInteger)txId withTransaction:(Transaction *)tx andCallback:(void (^)(Transaction *, TXError *))callback {
+	NSString *url = [NSString stringWithFormat:@"%@/transactions/%i", BASE_URL, (int) txId];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
 	request.HTTPMethod = @"PUT";

@@ -17,7 +17,6 @@
 		0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */; };
 		0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB531D7CDBA900C22302 /* UIColor+colors.m */; };
 		0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */; };
-		0734FB651D7CDE6000C22302 /* BudgetCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB611D7CDE6000C22302 /* BudgetCategory.m */; };
 		0734FB661D7CDE6000C22302 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB631D7CDE6000C22302 /* Client.m */; };
 		0734FB691D7CDEBE00C22302 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB681D7CDEBE00C22302 /* TXError.m */; };
 		0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */; };
@@ -34,6 +33,7 @@
 		07E734721E3011F000444EB1 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734711E3011F000444EB1 /* Amount.swift */; };
 		07E734741E311B3B00444EB1 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734731E311B3B00444EB1 /* PaymentType.swift */; };
 		07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734781E31512300444EB1 /* PaymentTypeSum.swift */; };
+		07E7347D1E3174DE00444EB1 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7347C1E3174DE00444EB1 /* BudgetCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +57,6 @@
 		0734FB531D7CDBA900C22302 /* UIColor+colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colors.m"; sourceTree = "<group>"; };
 		0734FB561D7CDC2300C22302 /* TXNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXNavigationViewController.h; sourceTree = "<group>"; };
 		0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXNavigationViewController.m; sourceTree = "<group>"; };
-		0734FB601D7CDE6000C22302 /* BudgetCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BudgetCategory.h; sourceTree = "<group>"; };
-		0734FB611D7CDE6000C22302 /* BudgetCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BudgetCategory.m; sourceTree = "<group>"; };
 		0734FB621D7CDE6000C22302 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		0734FB631D7CDE6000C22302 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
 		0734FB671D7CDEBE00C22302 /* TXError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXError.h; sourceTree = "<group>"; };
@@ -84,6 +82,7 @@
 		07E734711E3011F000444EB1 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		07E734731E311B3B00444EB1 /* PaymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
 		07E734781E31512300444EB1 /* PaymentTypeSum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTypeSum.swift; sourceTree = "<group>"; };
+		07E7347C1E3174DE00444EB1 /* BudgetCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,13 +134,12 @@
 			children = (
 				0734FB621D7CDE6000C22302 /* Client.h */,
 				0734FB631D7CDE6000C22302 /* Client.m */,
-				0734FB601D7CDE6000C22302 /* BudgetCategory.h */,
-				0734FB611D7CDE6000C22302 /* BudgetCategory.m */,
 				071B464B1DBE565000937992 /* Transaction.h */,
 				071B464C1DBE565000937992 /* Transaction.m */,
 				07E734711E3011F000444EB1 /* Amount.swift */,
 				07E734731E311B3B00444EB1 /* PaymentType.swift */,
 				07E734781E31512300444EB1 /* PaymentTypeSum.swift */,
+				07E7347C1E3174DE00444EB1 /* BudgetCategory.swift */,
 				07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */,
 			);
 			path = Client;
@@ -248,7 +246,7 @@
 		07BAF1A01D7C80D0008FE0AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Eric Romrell";
 				TargetAttributes = {
 					07BAF1A71D7C80D0008FE0AF = {
@@ -306,7 +304,6 @@
 				0734FB691D7CDEBE00C22302 /* TXError.m in Sources */,
 				0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */,
 				07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */,
-				0734FB651D7CDE6000C22302 /* BudgetCategory.m in Sources */,
 				07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */,
 				07E734721E3011F000444EB1 /* Amount.swift in Sources */,
 				0734FB661D7CDE6000C22302 /* Client.m in Sources */,
@@ -315,6 +312,7 @@
 				0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */,
 				071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */,
 				0720E94A1DC2BBFA005243DB /* AddTransactionPopUpViewController.m in Sources */,
+				07E7347D1E3174DE00444EB1 /* BudgetCategory.swift in Sources */,
 				07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */,
 				07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */,
 				071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */,
@@ -406,6 +404,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

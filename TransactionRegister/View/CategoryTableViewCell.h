@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BudgetCategory.h"
+
+@class BudgetCategory;
 
 typedef enum {
 	CATEGORY_NAME,

@@ -10,6 +10,7 @@
 #import "Client.h"
 #import "TXTableView.h"
 #import "CategoryTableViewCell.h"
+#import "TransactionRegister-Swift.h"
 
 @interface CategoryViewController () <UITableViewDataSource, UITableViewDelegate>
 

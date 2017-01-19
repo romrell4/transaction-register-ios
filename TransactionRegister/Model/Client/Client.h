@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BudgetCategory.h"
 #import "TXError.h"
 #import "Transaction.h"
+
+@class BudgetCategory;
 
 #define DEFAULT_ERROR_MESSAGE @"There was an error loading the data from the service. Please talk to your husband about it. :)"
 
@@ -21,7 +22,7 @@
 
 +(void)getAllActiveCategoriesWithCallback:(void (^)(NSArray<BudgetCategory *> *categories, TXError *error))callback;
 
-+(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<BudgetCategory *> *history, TXError *error))callback;
++(void)getHistoryForCategoryId:(NSInteger)categoryId withCallback:(void (^)(NSArray<BudgetCategory *> *history, TXError *error))callback;
 
 +(void)getAllTransactionsForDate:(NSDate *)date withPaymentType:(PaymentType *)paymentType withCallback:(void (^)(NSArray<Transaction *> *transactions, TXError *error))callback;
 
@@ -29,6 +30,6 @@
 
 +(void)createTransaction:(Transaction *)tx withCallback:(void (^)(Transaction *tx, TXError *error))callback;
 
-+(void)editTransaction:(int)txId withTransaction:(Transaction *)tx andCallback:(void (^)(Transaction *tx, TXError *error))callback;
++(void)editTransaction:(NSInteger)txId withTransaction:(Transaction *)tx andCallback:(void (^)(Transaction *tx, TXError *error))callback;
 
 @end
