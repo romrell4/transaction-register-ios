@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Transaction.h"
+
+@class Transaction;
 
 @interface TransactionTableViewCell : UITableViewCell
 

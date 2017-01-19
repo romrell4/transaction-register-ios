@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 
 @property (nonatomic) NSArray<BudgetCategory *> *categories;
-@property (nonatomic) int selectedCategoryId;
+@property (nonatomic) NSInteger selectedCategoryId;
 @property (nonatomic) NSDate *purchaseDate;
 
 @property (nonatomic) UITextField *selectedField;

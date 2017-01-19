@@ -7,8 +7,9 @@
 //
 
 #import "TXViewController.h"
-#import "Transaction.h"
 
+@class Transaction;
+@class PaymentType;
 @class AddTransactionPopUpViewController;
 
 @protocol PopUpDelegate

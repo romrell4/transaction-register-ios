@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46491DBE558300937992 /* TransactionsViewController.m */; };
-		071B464D1DBE565000937992 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B464C1DBE565000937992 /* Transaction.m */; };
 		071B46571DBEDCBD00937992 /* TXResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46561DBEDCBD00937992 /* TXResponse.m */; };
 		071B465A1DBF9D4700937992 /* TXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46591DBF9D4700937992 /* TXTableView.m */; };
 		071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46751DC01F6500937992 /* TransactionTableViewCell.m */; };
@@ -34,13 +33,12 @@
 		07E734741E311B3B00444EB1 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734731E311B3B00444EB1 /* PaymentType.swift */; };
 		07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734781E31512300444EB1 /* PaymentTypeSum.swift */; };
 		07E7347D1E3174DE00444EB1 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7347C1E3174DE00444EB1 /* BudgetCategory.swift */; };
+		07E7347F1E31769500444EB1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7347E1E31769400444EB1 /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		071B46481DBE558300937992 /* TransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionsViewController.h; sourceTree = "<group>"; };
 		071B46491DBE558300937992 /* TransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionsViewController.m; sourceTree = "<group>"; };
-		071B464B1DBE565000937992 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
-		071B464C1DBE565000937992 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
 		071B46551DBEDCBD00937992 /* TXResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXResponse.h; sourceTree = "<group>"; };
 		071B46561DBEDCBD00937992 /* TXResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXResponse.m; sourceTree = "<group>"; };
 		071B46581DBF9D4700937992 /* TXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTableView.h; sourceTree = "<group>"; };
@@ -83,6 +81,7 @@
 		07E734731E311B3B00444EB1 /* PaymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
 		07E734781E31512300444EB1 /* PaymentTypeSum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTypeSum.swift; sourceTree = "<group>"; };
 		07E7347C1E3174DE00444EB1 /* BudgetCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
+		07E7347E1E31769400444EB1 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +133,7 @@
 			children = (
 				0734FB621D7CDE6000C22302 /* Client.h */,
 				0734FB631D7CDE6000C22302 /* Client.m */,
-				071B464B1DBE565000937992 /* Transaction.h */,
-				071B464C1DBE565000937992 /* Transaction.m */,
+				07E7347E1E31769400444EB1 /* Transaction.swift */,
 				07E734711E3011F000444EB1 /* Amount.swift */,
 				07E734731E311B3B00444EB1 /* PaymentType.swift */,
 				07E734781E31512300444EB1 /* PaymentTypeSum.swift */,
@@ -295,12 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E7347F1E31769500444EB1 /* Transaction.swift in Sources */,
 				071B46571DBEDCBD00937992 /* TXResponse.m in Sources */,
 				071B465A1DBF9D4700937992 /* TXTableView.m in Sources */,
 				07E734741E311B3B00444EB1 /* PaymentType.swift in Sources */,
 				0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */,
 				07BAF1B01D7C80D0008FE0AF /* AppDelegate.m in Sources */,
-				071B464D1DBE565000937992 /* Transaction.m in Sources */,
 				0734FB691D7CDEBE00C22302 /* TXError.m in Sources */,
 				0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */,
 				07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */,

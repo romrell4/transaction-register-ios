@@ -76,7 +76,7 @@
 			
 			NSMutableArray<Transaction *> *transactions = [NSMutableArray arrayWithCapacity:transactionsJson.count];
 			for (NSDictionary *dict in transactionsJson) {
-				[transactions addObject:[Transaction transactionWithDictionary:dict]];
+				[transactions addObject:[[Transaction alloc] initWithDict:dict]];
 			}
 			callback(transactions, nil);
 		}
@@ -116,7 +116,7 @@
 		if (response.failed) {
 			callback(nil, response.error);
 		} else {
-			callback([Transaction transactionWithDictionary:[response getDataJson]], nil);
+			callback([[Transaction alloc] initWithDict:[response getDataJson]], nil);
 		}
 	}];
 }
@@ -132,7 +132,7 @@
 		if (response.failed) {
 			callback(nil, response.error);
 		} else {
-			callback([Transaction transactionWithDictionary:[response getDataJson]], nil);
+			callback([[Transaction alloc] initWithDict:[response getDataJson]], nil);
 		}
 	}];
 }

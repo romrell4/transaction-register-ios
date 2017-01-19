@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "TXError.h"
-#import "Transaction.h"
 
+@class Transaction;
+@class PaymentType;
 @class BudgetCategory;
 
 #define DEFAULT_ERROR_MESSAGE @"There was an error loading the data from the service. Please talk to your husband about it. :)"
