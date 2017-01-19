@@ -10,9 +10,10 @@
 #import "BudgetCategory.h"
 #import "TXError.h"
 #import "Transaction.h"
-#import "PaymentTypeSum.h"
 
 #define DEFAULT_ERROR_MESSAGE @"There was an error loading the data from the service. Please talk to your husband about it. :)"
+
+@class PaymentTypeSum;
 
 @interface Client : NSObject
 

@@ -8,6 +8,7 @@
 
 #import "Client.h"
 #import "TXResponse.h"
+#import "TransactionRegister-Swift.h"
 
 #define BASE_URL @"https://transaction-register.herokuapp.com"
 
@@ -94,10 +95,10 @@
 			
 			NSMutableArray<PaymentTypeSum *> *sums = [NSMutableArray arrayWithCapacity:sumsJson.count];
 			for (NSDictionary *dict in sumsJson) {
-				[sums addObject:[PaymentTypeSum sumWithDictionary:dict]];
+				[sums addObject:[[PaymentTypeSum alloc] initWithDict:dict]];
 			}
 			[sums sortUsingComparator:^NSComparisonResult(PaymentTypeSum *sum1, PaymentTypeSum *sum2) {
-				return [sum1.paymentType compare:sum2.paymentType];
+				return sum1.paymentType > sum2.paymentType;
 			}];
 			callback(sums, nil);
 		}

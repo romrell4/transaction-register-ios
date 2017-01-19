@@ -22,8 +22,6 @@
 		0734FB691D7CDEBE00C22302 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB681D7CDEBE00C22302 /* TXError.m */; };
 		0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */; };
 		0756712A1E2D8E62008944CF /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075671291E2D8E62008944CF /* SectionHeaderView.xib */; };
-		07716B071DC801C300FED949 /* PaymentTypeSum.m in Sources */ = {isa = PBXBuildFile; fileRef = 07716B061DC801C300FED949 /* PaymentTypeSum.m */; };
-		07716B0A1DC8EA2C00FED949 /* PaymentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 07716B091DC8EA2C00FED949 /* PaymentType.m */; };
 		07901F021DBA719900504A5A /* budget.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F001DBA719900504A5A /* budget.png */; };
 		07901F031DBA719900504A5A /* transactions.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F011DBA719900504A5A /* transactions.png */; };
 		07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1AC1D7C80D0008FE0AF /* main.m */; };
@@ -34,6 +32,8 @@
 		07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */; };
 		07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E734481E2D914400444EB1 /* SectionHeaderView.m */; };
 		07E734721E3011F000444EB1 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734711E3011F000444EB1 /* Amount.swift */; };
+		07E734741E311B3B00444EB1 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734731E311B3B00444EB1 /* PaymentType.swift */; };
+		07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734781E31512300444EB1 /* PaymentTypeSum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,10 +66,6 @@
 		0734FB6D1D7DFDF000C22302 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		075671291E2D8E62008944CF /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
-		07716B051DC801C300FED949 /* PaymentTypeSum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentTypeSum.h; sourceTree = "<group>"; };
-		07716B061DC801C300FED949 /* PaymentTypeSum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentTypeSum.m; sourceTree = "<group>"; };
-		07716B081DC8EA2C00FED949 /* PaymentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentType.h; sourceTree = "<group>"; };
-		07716B091DC8EA2C00FED949 /* PaymentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentType.m; sourceTree = "<group>"; };
 		07901F001DBA719900504A5A /* budget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = budget.png; sourceTree = "<group>"; };
 		07901F011DBA719900504A5A /* transactions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transactions.png; sourceTree = "<group>"; };
 		07BAF1A81D7C80D0008FE0AF /* TransactionRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +82,8 @@
 		07E734481E2D914400444EB1 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
 		07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransactionRegister-Bridging-Header.h"; sourceTree = "<group>"; };
 		07E734711E3011F000444EB1 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		07E734731E311B3B00444EB1 /* PaymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
+		07E734781E31512300444EB1 /* PaymentTypeSum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTypeSum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,11 +139,9 @@
 				0734FB611D7CDE6000C22302 /* BudgetCategory.m */,
 				071B464B1DBE565000937992 /* Transaction.h */,
 				071B464C1DBE565000937992 /* Transaction.m */,
-				07716B051DC801C300FED949 /* PaymentTypeSum.h */,
-				07716B061DC801C300FED949 /* PaymentTypeSum.m */,
-				07716B081DC8EA2C00FED949 /* PaymentType.h */,
-				07716B091DC8EA2C00FED949 /* PaymentType.m */,
 				07E734711E3011F000444EB1 /* Amount.swift */,
+				07E734731E311B3B00444EB1 /* PaymentType.swift */,
+				07E734781E31512300444EB1 /* PaymentTypeSum.swift */,
 				07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */,
 			);
 			path = Client;
@@ -303,11 +299,10 @@
 			files = (
 				071B46571DBEDCBD00937992 /* TXResponse.m in Sources */,
 				071B465A1DBF9D4700937992 /* TXTableView.m in Sources */,
+				07E734741E311B3B00444EB1 /* PaymentType.swift in Sources */,
 				0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */,
 				07BAF1B01D7C80D0008FE0AF /* AppDelegate.m in Sources */,
-				07716B0A1DC8EA2C00FED949 /* PaymentType.m in Sources */,
 				071B464D1DBE565000937992 /* Transaction.m in Sources */,
-				07716B071DC801C300FED949 /* PaymentTypeSum.m in Sources */,
 				0734FB691D7CDEBE00C22302 /* TXError.m in Sources */,
 				0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */,
 				07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */,
@@ -321,6 +316,7 @@
 				071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */,
 				0720E94A1DC2BBFA005243DB /* AddTransactionPopUpViewController.m in Sources */,
 				07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */,
+				07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */,
 				071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

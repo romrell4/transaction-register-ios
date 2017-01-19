@@ -17,7 +17,7 @@
 
 	Transaction *me = [[self alloc] init];
 	me.transactionId = [dict[@"transactionId"] intValue];
-	me.paymentType = [PaymentType typeWithRealType:dict[@"paymentType"]];
+	me.paymentType = [[PaymentType alloc] initWithRealType:dict[@"paymentType"]];
 	me.purchaseDate = [format dateFromString:dict[@"purchaseDate"]];
 	me.business = dict[@"business"];
 	me.amount = [[Amount alloc] initWithValue:[dict[@"amount"] doubleValue]];

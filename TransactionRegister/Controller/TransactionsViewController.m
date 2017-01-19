@@ -207,7 +207,7 @@
 			for (PaymentTypeSum *sum in sums) {
 				total += sum.total.value;
 			}
-			[mutableSums addObject:[PaymentTypeSum sumWithAmount:total]];
+			[mutableSums addObject:[[PaymentTypeSum alloc] initWithAmount:total]];
 			self.sums = mutableSums;
 		}
 	}];
