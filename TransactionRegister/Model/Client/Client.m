@@ -13,7 +13,7 @@
 
 @implementation Client
 
-+(void)getBudgetWithDate:(NSDate *)date andCallback:(void (^)(NSArray<TXCategory *> *, TXError *))callback {
++(void)getBudgetWithDate:(NSDate *)date andCallback:(void (^)(NSArray<BudgetCategory *> *, TXError *))callback {
 	NSString *url = [NSString stringWithFormat:@"%@/categories?%@", BASE_URL, [self monthAndYearWithDate:date]];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -26,7 +26,7 @@
 	}];
 }
 
-+(void)getAllActiveCategoriesWithCallback:(void (^)(NSArray<TXCategory *> *, TXError *))callback {
++(void)getAllActiveCategoriesWithCallback:(void (^)(NSArray<BudgetCategory *> *, TXError *))callback {
 	NSString *url = [NSString stringWithFormat:@"%@/categories/active", BASE_URL];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -39,7 +39,7 @@
 	}];
 }
 
-+(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<TXCategory *> *, TXError *))callback {
++(void)getHistoryForCategoryId:(int)categoryId withCallback:(void (^)(NSArray<BudgetCategory *> *, TXError *))callback {
 	NSString *url = [NSString stringWithFormat:@"%@/categories?categoryId=%i", BASE_URL, categoryId];
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -52,12 +52,12 @@
 	}];
 }
 
-+(NSArray<TXCategory *> *)parseCategoriesFromResponse:(TXResponse *)response {
++(NSArray<BudgetCategory *> *)parseCategoriesFromResponse:(TXResponse *)response {
 	NSArray *categoriesJson = [response getDataJson];
 	
-	NSMutableArray<TXCategory *> *categories = [NSMutableArray arrayWithCapacity:categoriesJson.count];
+	NSMutableArray<BudgetCategory *> *categories = [NSMutableArray arrayWithCapacity:categoriesJson.count];
 	for (NSDictionary *dict in categoriesJson) {
-		[categories addObject:[TXCategory categoryWithDictionary:dict]];
+		[categories addObject:[BudgetCategory categoryWithDictionary:dict]];
 	}
 	return categories;
 }

@@ -19,7 +19,7 @@
 
 @implementation CategoryTableViewCell
 
--(void)setCategory:(TXCategory *)category withMainProperty:(CategoryProperty)mainProperty {
+-(void)setCategory:(BudgetCategory *)category withMainProperty:(CategoryProperty)mainProperty {
 	switch (mainProperty) {
 		case CATEGORY_NAME:
 			self.nameLabel.text = category.name;

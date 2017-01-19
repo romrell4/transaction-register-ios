@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet TXTableView *tableView;
 
-@property (nonatomic) NSArray<TXCategory *> *categories;
+@property (nonatomic) NSArray<BudgetCategory *> *categories;
 @property (nonatomic) NSMutableArray<NSDate *> *filterDates;
 @property (nonatomic) NSDate *currentFilterDate;
 
@@ -95,7 +95,7 @@
 
 -(void)loadDataWithDate:(NSDate *)date {
 	[self.spinner startAnimating];
-	[Client getBudgetWithDate:date andCallback:^(NSArray<TXCategory *> *categories, TXError *error) {
+	[Client getBudgetWithDate:date andCallback:^(NSArray<BudgetCategory *> *categories, TXError *error) {
 		[self.spinner stopAnimating];
 		if (error) {
 			[self showError:error];

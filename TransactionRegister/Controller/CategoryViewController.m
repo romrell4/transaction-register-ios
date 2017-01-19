@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet TXTableView *tableView;
 
-@property (nonatomic) NSArray<TXCategory *> *history;
+@property (nonatomic) NSArray<BudgetCategory *> *history;
 
 @end
 
@@ -28,7 +28,7 @@
 	self.title = self.category.name;
 	
 	[self.spinner startAnimating];
-	[Client getHistoryForCategoryId:self.category.categoryId withCallback:^(NSArray<TXCategory *> *history, TXError *error) {
+	[Client getHistoryForCategoryId:self.category.categoryId withCallback:^(NSArray<BudgetCategory *> *history, TXError *error) {
 		[self.spinner stopAnimating];
 		if (error) {
 			[self showError:error];

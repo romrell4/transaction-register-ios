@@ -10,7 +10,7 @@
 
 @class Amount;
 
-@interface TXCategory : NSObject
+@interface BudgetCategory : NSObject
 
 @property (nonatomic) int categoryId;
 @property (nonatomic) NSString *name;
@@ -19,6 +19,6 @@
 @property (nonatomic) Amount *amountLeft;
 @property (nonatomic) Amount *amountBudgeted;
 
-+(TXCategory *)categoryWithDictionary:(NSDictionary *)dict;
++(BudgetCategory *)categoryWithDictionary:(NSDictionary *)dict;
 
 @end

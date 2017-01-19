@@ -6,13 +6,13 @@
 //  Copyright © 2016 Eric Romrell. All rights reserved.
 //
 
-#import "TXCategory.h"
+#import "BudgetCategory.h"
 #import "TransactionRegister-Swift.h"
 
-@implementation TXCategory
+@implementation BudgetCategory
 
-+(TXCategory *)categoryWithDictionary:(NSDictionary *)dict {
-	TXCategory *me = [[TXCategory alloc] init];
++(BudgetCategory *)categoryWithDictionary:(NSDictionary *)dict {
+	BudgetCategory *me = [[BudgetCategory alloc] init];
 	me.categoryId = [dict[@"categoryId"] intValue];
 	me.name = dict[@"name"];
 	me.month = dict[@"month"];

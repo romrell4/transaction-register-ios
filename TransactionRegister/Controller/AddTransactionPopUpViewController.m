@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *categoryField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 
-@property (nonatomic) NSArray<TXCategory *> *categories;
+@property (nonatomic) NSArray<BudgetCategory *> *categories;
 @property (nonatomic) int selectedCategoryId;
 @property (nonatomic) NSDate *purchaseDate;
 
@@ -50,7 +50,7 @@
 	}
 	
 	//Load the picker values from the web service
-	[Client getAllActiveCategoriesWithCallback:^(NSArray<TXCategory *> *categories, TXError *error) {
+	[Client getAllActiveCategoriesWithCallback:^(NSArray<BudgetCategory *> *categories, TXError *error) {
 		if (error) {
 			[self showError:error];
 		} else {
