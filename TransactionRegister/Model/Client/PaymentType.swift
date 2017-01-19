@@ -18,13 +18,12 @@ class PaymentType : NSObject, Comparable {
 	var realType : String?
 	var prettyType : String?
 	
-	
 	init(realType : String?) {
-		
+		self.realType = realType
 	}
 	
-	init(index : Int) {
-		
+	static func paymentType(index : Int) -> PaymentType {
+		return PAYMENT_TYPES[index]
 	}
 	
 	func orderIndex() -> Int {
@@ -39,5 +38,9 @@ class PaymentType : NSObject, Comparable {
 	
 	static func <(lhs: PaymentType, rhs: PaymentType) -> Bool {
 		return lhs.orderIndex() < rhs.orderIndex()
+	}
+	
+	static func ==(lhs: PaymentType, rhs: PaymentType) -> Bool {
+		return lhs.realType == rhs.realType
 	}
 }

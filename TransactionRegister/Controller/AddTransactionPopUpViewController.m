@@ -213,7 +213,7 @@
 	NSMutableArray<UITextField *> *errorFields = [NSMutableArray array];
 	
 	Transaction *tx = [[Transaction alloc] init];
-	tx.paymentType = [[PaymentType alloc] initWithIndex:self.paymentTypeControl.selectedSegmentIndex];
+	tx.paymentType = [PaymentType paymentTypeWithIndex:self.paymentTypeControl.selectedSegmentIndex];
 	if (![self.businessField.text isEqualToString:@""]) {
 		tx.business = self.businessField.text;
 	} else {
