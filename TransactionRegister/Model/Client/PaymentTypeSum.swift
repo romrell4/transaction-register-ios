@@ -13,7 +13,8 @@ class PaymentTypeSum : NSObject {
 	var total : Amount
 	
 	init(dict:Dictionary<String, Any>) {
-		self.paymentType = PaymentType(realType: dict["paymentType"] as! String?)
+		//TODO: Understand what this is doing
+		self.paymentType = PaymentType(realType: (dict["paymentType"] as! String?)!)
 		self.total = Amount(value: dict["total"] as! Double)
 	}
 	

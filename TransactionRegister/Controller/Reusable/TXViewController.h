@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TXError.h"
+#import "TransactionRegister-Swift.h"
+
+@class TXError;
 
 @interface TXViewController : UIViewController
 

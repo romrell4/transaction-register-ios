@@ -7,7 +7,6 @@
 //
 
 #import "AddTransactionPopUpViewController.h"
-#import "Client.h"
 #import "TransactionRegister-Swift.h"
 
 #define TOOLBAR_HEIGHT 44
@@ -196,9 +195,9 @@
 			}
 		};
 		if (self.transaction) {
-			[Client editTransaction:self.transaction.transactionId withTransaction:newTx andCallback:callback];
+			[Client editTransactionWithTxId:self.transaction.transactionId tx:newTx callback:callback];
 		} else {
-			[Client createTransaction:newTx withCallback:callback];
+			[Client createTransactionWithTx:newTx callback:callback];
 		}
 	} @catch (NSException *exception) {
 		NSArray<UITextField *> *errorFields = exception.userInfo[@"errorFields"];

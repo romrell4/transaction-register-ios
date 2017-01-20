@@ -7,7 +7,6 @@
 //
 
 #import "TransactionsViewController.h"
-#import "Client.h"
 #import "TXTableView.h"
 #import "TransactionTableViewCell.h"
 #import "AddTransactionPopUpViewController.h"
@@ -174,7 +173,7 @@
 
 -(void)loadTransactionsForDate:(NSDate *)date {
 	self.countdown++;
-	[Client getAllTransactionsForDate:(NSDate *)date withPaymentType:self.currentFilter withCallback:^(NSArray<Transaction *> *transactions, TXError *error) {
+	[Client getAllTransactionsWithDate:date paymentType:self.currentFilter callback:^(NSArray<Transaction *> * _Nullable transactions, TXError * _Nullable error) {
 		if (error) {
 			[self showError:error];
 		} else {

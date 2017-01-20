@@ -7,7 +7,6 @@
 //
 
 #import "CategoryViewController.h"
-#import "Client.h"
 #import "TXTableView.h"
 #import "CategoryTableViewCell.h"
 #import "TransactionRegister-Swift.h"
@@ -29,7 +28,7 @@
 	self.title = self.category.name;
 	
 	[self.spinner startAnimating];
-	[Client getHistoryForCategoryId:self.category.categoryId withCallback:^(NSArray<BudgetCategory *> *history, TXError *error) {
+	[Client getHistoryWithCategoryId:self.category.categoryId callback:^(NSArray<BudgetCategory *> * _Nullable history, TXError * _Nullable error) {
 		[self.spinner stopAnimating];
 		if (error) {
 			[self showError:error];

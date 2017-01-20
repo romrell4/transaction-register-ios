@@ -8,7 +8,6 @@
 
 #import "CategoriesViewController.h"
 #import "TXTableView.h"
-#import "Client.h"
 #import "CategoryTableViewCell.h"
 #import "CategoryViewController.h"
 
@@ -95,7 +94,7 @@
 
 -(void)loadDataWithDate:(NSDate *)date {
 	[self.spinner startAnimating];
-	[Client getBudgetWithDate:date andCallback:^(NSArray<BudgetCategory *> *categories, TXError *error) {
+	[Client getBudgetWithDate:date callback:^(NSArray<BudgetCategory *> * _Nullable categories, TXError * _Nullable error) {
 		[self.spinner stopAnimating];
 		if (error) {
 			[self showError:error];

@@ -1,0 +1,21 @@
+//
+//  TXError.swift
+//  TransactionRegister
+//
+//  Created by Eric Romrell on 1/20/17.
+//  Copyright © 2017 Eric Romrell. All rights reserved.
+//
+
+import Foundation
+
+class TXError : NSObject {
+	var error : Error?
+	var readableMessage : String
+	var debugMessage : String?
+	
+	init(error:Error?, readableMessage:String, debugMessage:String?) {
+		self.error = error
+		self.readableMessage = readableMessage
+		self.debugMessage = debugMessage
+	}
+}

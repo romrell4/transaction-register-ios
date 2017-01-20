@@ -15,10 +15,10 @@ class PaymentType : NSObject, Comparable {
 		PaymentType(realType: "SAVINGS"),
 		PaymentType(realType: "PERMANENT_SAVINGS")
 	];
-	var realType : String?
+	var realType : String
 	var prettyType : String?
 	
-	init(realType : String?) {
+	init(realType : String) {
 		self.realType = realType
 	}
 	
@@ -27,9 +27,8 @@ class PaymentType : NSObject, Comparable {
 	}
 	
 	func orderIndex() -> Int {
-		//Unwrap the
 		guard let temp = PaymentType.PAYMENT_TYPES.index(of: self) else {
-			print("Invalid payment type: ", self.realType ?? "")
+			print("Invalid payment type: ", self.realType)
 			return -1
 		}
 

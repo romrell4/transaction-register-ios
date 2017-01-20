@@ -31,7 +31,7 @@ class Transaction : NSObject {
 	
 	init(dict : Dictionary<String, Any>) {
 		self.transactionId = dict["transactionId"] as! Int
-		self.paymentType = PaymentType(realType: dict["paymentType"] as! String?)
+		self.paymentType = PaymentType(realType: dict["paymentType"] as! String)
 		self.purchaseDate = Transaction.dateFormat.date(from: dict["purchaseDate"] as! String)
 		self.business = dict["business"] as! String?
 		self.amount = Amount(value: dict["amount"] as! Double)

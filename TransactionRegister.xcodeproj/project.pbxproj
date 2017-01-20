@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46491DBE558300937992 /* TransactionsViewController.m */; };
-		071B46571DBEDCBD00937992 /* TXResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46561DBEDCBD00937992 /* TXResponse.m */; };
 		071B465A1DBF9D4700937992 /* TXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46591DBF9D4700937992 /* TXTableView.m */; };
 		071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46751DC01F6500937992 /* TransactionTableViewCell.m */; };
 		071B46791DC1675800937992 /* TXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46781DC1675800937992 /* TXViewController.m */; };
@@ -16,8 +15,6 @@
 		0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */; };
 		0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB531D7CDBA900C22302 /* UIColor+colors.m */; };
 		0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */; };
-		0734FB661D7CDE6000C22302 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB631D7CDE6000C22302 /* Client.m */; };
-		0734FB691D7CDEBE00C22302 /* TXError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB681D7CDEBE00C22302 /* TXError.m */; };
 		0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */; };
 		0756712A1E2D8E62008944CF /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075671291E2D8E62008944CF /* SectionHeaderView.xib */; };
 		07901F021DBA719900504A5A /* budget.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F001DBA719900504A5A /* budget.png */; };
@@ -34,13 +31,14 @@
 		07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734781E31512300444EB1 /* PaymentTypeSum.swift */; };
 		07E7347D1E3174DE00444EB1 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7347C1E3174DE00444EB1 /* BudgetCategory.swift */; };
 		07E7347F1E31769500444EB1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7347E1E31769400444EB1 /* Transaction.swift */; };
+		07E734811E32624E00444EB1 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734801E32624E00444EB1 /* Client.swift */; };
+		07E734831E32641100444EB1 /* TXError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734821E32641100444EB1 /* TXError.swift */; };
+		07E734851E326B5A00444EB1 /* TXResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734841E326B5A00444EB1 /* TXResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		071B46481DBE558300937992 /* TransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionsViewController.h; sourceTree = "<group>"; };
 		071B46491DBE558300937992 /* TransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionsViewController.m; sourceTree = "<group>"; };
-		071B46551DBEDCBD00937992 /* TXResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXResponse.h; sourceTree = "<group>"; };
-		071B46561DBEDCBD00937992 /* TXResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXResponse.m; sourceTree = "<group>"; };
 		071B46581DBF9D4700937992 /* TXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTableView.h; sourceTree = "<group>"; };
 		071B46591DBF9D4700937992 /* TXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTableView.m; sourceTree = "<group>"; };
 		071B46741DC01F6500937992 /* TransactionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableViewCell.h; sourceTree = "<group>"; };
@@ -55,10 +53,6 @@
 		0734FB531D7CDBA900C22302 /* UIColor+colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colors.m"; sourceTree = "<group>"; };
 		0734FB561D7CDC2300C22302 /* TXNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXNavigationViewController.h; sourceTree = "<group>"; };
 		0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXNavigationViewController.m; sourceTree = "<group>"; };
-		0734FB621D7CDE6000C22302 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
-		0734FB631D7CDE6000C22302 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
-		0734FB671D7CDEBE00C22302 /* TXError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXError.h; sourceTree = "<group>"; };
-		0734FB681D7CDEBE00C22302 /* TXError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXError.m; sourceTree = "<group>"; };
 		0734FB6D1D7DFDF000C22302 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		075671291E2D8E62008944CF /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
@@ -82,6 +76,9 @@
 		07E734781E31512300444EB1 /* PaymentTypeSum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTypeSum.swift; sourceTree = "<group>"; };
 		07E7347C1E3174DE00444EB1 /* BudgetCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
 		07E7347E1E31769400444EB1 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		07E734801E32624E00444EB1 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		07E734821E32641100444EB1 /* TXError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXError.swift; sourceTree = "<group>"; };
+		07E734841E326B5A00444EB1 /* TXResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +117,8 @@
 		0734FB5C1D7CDE6000C22302 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				0734FB671D7CDEBE00C22302 /* TXError.h */,
-				0734FB681D7CDEBE00C22302 /* TXError.m */,
-				071B46551DBEDCBD00937992 /* TXResponse.h */,
-				071B46561DBEDCBD00937992 /* TXResponse.m */,
+				07E734821E32641100444EB1 /* TXError.swift */,
+				07E734841E326B5A00444EB1 /* TXResponse.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -131,14 +126,12 @@
 		0734FB5D1D7CDE6000C22302 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				0734FB621D7CDE6000C22302 /* Client.h */,
-				0734FB631D7CDE6000C22302 /* Client.m */,
+				07E734801E32624E00444EB1 /* Client.swift */,
 				07E7347E1E31769400444EB1 /* Transaction.swift */,
 				07E734711E3011F000444EB1 /* Amount.swift */,
 				07E734731E311B3B00444EB1 /* PaymentType.swift */,
 				07E734781E31512300444EB1 /* PaymentTypeSum.swift */,
 				07E7347C1E3174DE00444EB1 /* BudgetCategory.swift */,
-				07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -167,6 +160,7 @@
 				07BAF1C91D7C81FC008FE0AF /* Model */,
 				07BAF1AE1D7C80D0008FE0AF /* AppDelegate.h */,
 				07BAF1AF1D7C80D0008FE0AF /* AppDelegate.m */,
+				07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */,
 				07BAF1BC1D7C80D0008FE0AF /* Info.plist */,
 				07BAF1AC1D7C80D0008FE0AF /* main.m */,
 			);
@@ -294,22 +288,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				07E7347F1E31769500444EB1 /* Transaction.swift in Sources */,
-				071B46571DBEDCBD00937992 /* TXResponse.m in Sources */,
 				071B465A1DBF9D4700937992 /* TXTableView.m in Sources */,
+				07E734831E32641100444EB1 /* TXError.swift in Sources */,
 				07E734741E311B3B00444EB1 /* PaymentType.swift in Sources */,
+				07E734811E32624E00444EB1 /* Client.swift in Sources */,
 				0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */,
 				07BAF1B01D7C80D0008FE0AF /* AppDelegate.m in Sources */,
-				0734FB691D7CDEBE00C22302 /* TXError.m in Sources */,
 				0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */,
 				07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */,
 				07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */,
 				07E734721E3011F000444EB1 /* Amount.swift in Sources */,
-				0734FB661D7CDE6000C22302 /* Client.m in Sources */,
 				071B46791DC1675800937992 /* TXViewController.m in Sources */,
 				0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */,
 				0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */,
 				071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */,
 				0720E94A1DC2BBFA005243DB /* AddTransactionPopUpViewController.m in Sources */,
+				07E734851E326B5A00444EB1 /* TXResponse.swift in Sources */,
 				07E7347D1E3174DE00444EB1 /* BudgetCategory.swift in Sources */,
 				07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */,
 				07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */,
@@ -417,7 +411,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.byu.TransactionRegister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "TransactionRegister/Model/Client/TransactionRegister-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TransactionRegister/TransactionRegister-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -433,7 +427,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.byu.TransactionRegister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "TransactionRegister/Model/Client/TransactionRegister-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TransactionRegister/TransactionRegister-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
