@@ -8,7 +8,7 @@
 
 #import "CategoryTableViewCell.h"
 #import "UIColor+colors.h"
-#import "TransactioNRegister-Swift.h"
+#import "TransactionRegister-Swift.h"
 
 @interface CategoryTableViewCell ()
 

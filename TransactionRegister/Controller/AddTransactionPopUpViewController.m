@@ -189,7 +189,7 @@
 		void (^callback)() = ^(Transaction *tx, TXError *error) {
 			[self.spinner stopAnimating];
 			if (error) {
-				[self showError:error];
+				[self showError:error withCallback:nil];
 			} else {
 				[self dismissPopUpWithChanges:YES];
 			}

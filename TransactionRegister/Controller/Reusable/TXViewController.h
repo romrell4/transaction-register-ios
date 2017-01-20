@@ -14,5 +14,6 @@
 @interface TXViewController : UIViewController
 
 -(void)showError:(TXError *)error;
+-(void)showError:(TXError *)error withCallback:(void (^)(UIAlertAction *action))callback;
 
 @end

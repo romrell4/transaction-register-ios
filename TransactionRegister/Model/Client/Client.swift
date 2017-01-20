@@ -82,7 +82,7 @@ class Client : NSObject {
 					sums.append(PaymentTypeSum(dict: dict))
 				}
 				sums.sort(by: { (sum1, sum2) -> Bool in
-					sum1.paymentType! > sum2.paymentType!
+					sum1.paymentType!.orderIndex() < sum2.paymentType!.orderIndex()
 				})
 				callback(sums, nil)
 			}
@@ -131,13 +131,15 @@ class Client : NSObject {
 	
 	private static func sendRequest(request:URLRequest, callback:@escaping ((TXResponse) -> Void)) {
 		URLSession.shared.dataTask(with: request) { (data, response, error) in
-			let txResponse = TXResponse.response(data: data, response: response as? HTTPURLResponse, error: error)
-			if txResponse.failed() {
-				txResponse.logError()
-			}
-			
-			callback(txResponse)
-		}
+			OperationQueue.main.addOperation({ 
+				let txResponse = TXResponse.response(data: data, response: response as? HTTPURLResponse, error: error)
+				if txResponse.failed() {
+					txResponse.logError()
+				}
+				
+				callback(txResponse)
+			})
+		}.resume()
 	}
 	
 	private static func monthAndYearQueryString(date:Date) -> String {

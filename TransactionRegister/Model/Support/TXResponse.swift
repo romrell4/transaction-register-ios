@@ -45,8 +45,7 @@ class TXResponse : NSObject {
 	}
 	
 	func logError() {
-		print("Error: \(self.error)")
-		print("Response: \(self.getDataString())")
+		print(self.error!)
 	}
 	
 	private func getError(error:Error?) -> TXError? {

@@ -22,6 +22,10 @@ class BudgetCategory : NSObject {
 		self.month = dict["month"] as! String?
 		self.amountSpent = Amount(value: dict["amountSpent"] as! Double)
 		self.amountLeft = Amount(value: dict["amountLeft"] as! Double)
-		self.amountBudgeted = Amount(value: dict["amountLeft"] as! Double)
+		self.amountBudgeted = Amount(value: dict["amountBudgeted"] as! Double)
+	}
+	
+	override var description: String {
+		return "\(self.name!) \(self.month!). Spent: \(self.amountSpent), Left: \(self.amountLeft), Budget: \(self.amountBudgeted)"
 	}
 }

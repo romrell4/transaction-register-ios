@@ -20,4 +20,8 @@ class Amount : NSObject {
 		format.numberStyle = .currency
 		return format.string(from: NSNumber(floatLiteral: self.value))
 	}
+	
+	override var description: String {
+		return "\(self.value)"
+	}
 }

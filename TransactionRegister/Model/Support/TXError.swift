@@ -18,4 +18,8 @@ class TXError : NSObject {
 		self.readableMessage = readableMessage
 		self.debugMessage = debugMessage
 	}
+	
+	override var description: String {
+		return "Error: \(self.error)\nReadable Message: \(self.readableMessage)\nDebug Message: \(self.debugMessage ?? "nil")";
+	}
 }

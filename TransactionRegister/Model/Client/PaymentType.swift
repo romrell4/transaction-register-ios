@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PaymentType : NSObject, Comparable {
+class PaymentType : NSObject {
 	private static let PAYMENT_TYPES = [
 		PaymentType(realType: "CREDIT"),
 		PaymentType(realType: "DEBIT"),
@@ -16,10 +16,11 @@ class PaymentType : NSObject, Comparable {
 		PaymentType(realType: "PERMANENT_SAVINGS")
 	];
 	var realType : String
-	var prettyType : String?
+	var prettyType : String
 	
 	init(realType : String) {
 		self.realType = realType
+		self.prettyType = realType.replacingOccurrences(of: "_", with: " ").capitalized
 	}
 	
 	static func paymentType(index : Int) -> PaymentType {
@@ -27,19 +28,14 @@ class PaymentType : NSObject, Comparable {
 	}
 	
 	func orderIndex() -> Int {
-		guard let temp = PaymentType.PAYMENT_TYPES.index(of: self) else {
+		let index = PaymentType.PAYMENT_TYPES.index { (paymentType) -> Bool in
+			return paymentType.realType == self.realType
+		}
+		guard let temp = index else {
 			print("Invalid payment type: ", self.realType)
 			return -1
 		}
 
 		return temp;
-	}
-	
-	static func <(lhs: PaymentType, rhs: PaymentType) -> Bool {
-		return lhs.orderIndex() < rhs.orderIndex()
-	}
-	
-	static func ==(lhs: PaymentType, rhs: PaymentType) -> Bool {
-		return lhs.realType == rhs.realType
 	}
 }
