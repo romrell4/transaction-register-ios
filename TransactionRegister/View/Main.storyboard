@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dvs-9b-bn1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dvs-9b-bn1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Budget-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CategoriesViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CategoriesViewController" customModule="TransactionRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,11 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-Yh-7ny" customClass="TXTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-Yh-7ny" customClass="TXTableView" customModule="TransactionRegister" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="xCa-Vi-Ka8" customClass="CategoryTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="xCa-Vi-Ka8" customClass="CategoryTableViewCell" customModule="TransactionRegister" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xCa-Vi-Ka8" id="dSM-SN-ALq">
@@ -54,8 +54,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="amountSpentLabel" destination="F6v-fj-406" id="Hus-vi-oxy"/>
-                                            <outlet property="nameLabel" destination="z6v-6x-3tM" id="24m-gq-0Af"/>
+                                            <outlet property="amountSpentLabel" destination="F6v-fj-406" id="nFe-ZW-guI"/>
+                                            <outlet property="nameLabel" destination="z6v-6x-3tM" id="Lh6-SF-vTZ"/>
                                             <segue destination="f3q-2r-GeX" kind="show" identifier="category" id="mV3-uS-BxT"/>
                                         </connections>
                                     </tableViewCell>
@@ -82,8 +82,8 @@
                     <tabBarItem key="tabBarItem" title="Budget" image="budget.png" id="MHU-N6-gvF"/>
                     <navigationItem key="navigationItem" id="OWW-oi-SHU"/>
                     <connections>
-                        <outlet property="spinner" destination="ZXI-3c-w2Y" id="1Qi-wn-Yxp"/>
-                        <outlet property="tableView" destination="9cO-Yh-7ny" id="mX6-Jx-gPK"/>
+                        <outlet property="spinner" destination="ZXI-3c-w2Y" id="kfu-JG-bJu"/>
+                        <outlet property="tableView" destination="9cO-Yh-7ny" id="Yhg-d0-34O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,7 +93,7 @@
         <!--Category View Controller-->
         <scene sceneID="QH4-Bt-gbo">
             <objects>
-                <viewController id="f3q-2r-GeX" customClass="CategoryViewController" sceneMemberID="viewController">
+                <viewController id="f3q-2r-GeX" customClass="CategoryViewController" customModule="TransactionRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oUI-bw-HI6"/>
                         <viewControllerLayoutGuide type="bottom" id="cXH-Qj-uD2"/>
@@ -102,7 +102,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D1T-tB-ryP" customClass="TXTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D1T-tB-ryP" customClass="TXTableView" customModule="TransactionRegister" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -162,7 +162,7 @@
         <!--Navigation View Controller-->
         <scene sceneID="xgy-H6-wTA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dvs-9b-bn1" customClass="TXNavigationViewController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dvs-9b-bn1" customClass="TXNavigationViewController" customModule="TransactionRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MVV-TN-5j3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -204,7 +204,7 @@
         <!--Transactions-->
         <scene sceneID="GIR-Ee-No8">
             <objects>
-                <viewController id="5Rd-n1-Imy" customClass="TransactionsViewController" sceneMemberID="viewController">
+                <viewController id="5Rd-n1-Imy" customClass="TransactionsViewController" customModule="TransactionRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MZz-gw-02X"/>
                         <viewControllerLayoutGuide type="bottom" id="23f-Wq-G4Z"/>
@@ -213,11 +213,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="02t-qD-gux" customClass="TXTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="02t-qD-gux" customClass="TXTableView" customModule="TransactionRegister" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="66G-IJ-dIz" customClass="TransactionTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="66G-IJ-dIz" customClass="TransactionTableViewCell" customModule="TransactionRegister" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="66G-IJ-dIz" id="q2f-NW-bFh">
@@ -275,10 +275,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="amountLabel" destination="i8q-ZJ-poI" id="DqA-8w-15L"/>
-                                            <outlet property="businessLabel" destination="bHr-KG-F2G" id="53d-ba-G6a"/>
-                                            <outlet property="categoryLabel" destination="jEy-c9-lgi" id="3EU-gM-D3f"/>
-                                            <outlet property="dateLabel" destination="DhU-gH-Y2h" id="Yba-nG-vtu"/>
+                                            <outlet property="amountLabel" destination="i8q-ZJ-poI" id="NIN-I8-vFj"/>
+                                            <outlet property="businessLabel" destination="bHr-KG-F2G" id="Zlo-YX-ves"/>
+                                            <outlet property="categoryLabel" destination="jEy-c9-lgi" id="iYD-el-E9C"/>
+                                            <outlet property="dateLabel" destination="DhU-gH-Y2h" id="d0I-GE-Bk2"/>
                                             <segue destination="POW-cT-wNs" kind="presentation" identifier="editTransaction" id="TR0-Bv-tZ4"/>
                                         </connections>
                                     </tableViewCell>
@@ -304,8 +304,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" image="transactions.png" id="Mvd-fg-5qd"/>
                     <connections>
-                        <outlet property="spinner" destination="Nlv-Bq-Xrn" id="zdC-7a-u0l"/>
-                        <outlet property="tableView" destination="02t-qD-gux" id="c8u-Hp-U4D"/>
+                        <outlet property="spinner" destination="Nlv-Bq-Xrn" id="UGU-aC-2GX"/>
+                        <outlet property="tableView" destination="02t-qD-gux" id="9J2-0u-5OV"/>
                         <segue destination="POW-cT-wNs" kind="presentation" identifier="addTransaction" id="aNL-eY-xse"/>
                     </connections>
                 </viewController>
@@ -316,7 +316,7 @@
         <!--Add Transaction Pop Up View Controller-->
         <scene sceneID="BVh-ln-dhe">
             <objects>
-                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overCurrentContext" id="POW-cT-wNs" customClass="AddTransactionPopUpViewController" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="overCurrentContext" id="POW-cT-wNs" customClass="AddTransactionPopUpViewController" customModule="TransactionRegister" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eFV-Iw-Zcd"/>
                         <viewControllerLayoutGuide type="bottom" id="Em9-mP-Th9"/>
@@ -333,12 +333,12 @@
                                     <navigationItem id="Y5G-HX-zkW">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Z9d-nx-E6A">
                                             <connections>
-                                                <action selector="cancelTapped:" destination="POW-cT-wNs" id="5g4-8C-Q2c"/>
+                                                <action selector="cancelTapped:" destination="POW-cT-wNs" id="iJm-Zj-xt1"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="QgW-Hs-LY8">
                                             <connections>
-                                                <action selector="saveTapped:" destination="POW-cT-wNs" id="Jv2-GW-Zv1"/>
+                                                <action selector="saveTapped:" destination="POW-cT-wNs" id="uHx-u2-J0w"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -442,14 +442,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="amountField" destination="tDz-N1-k6F" id="qyT-Fg-kTi"/>
-                        <outlet property="bottomContraint" destination="gYZ-wY-f9W" id="KIB-kW-FJD"/>
-                        <outlet property="businessField" destination="A4V-UU-r05" id="1qw-u4-AFS"/>
-                        <outlet property="categoryField" destination="zmX-d8-vAw" id="38U-if-Qgg"/>
-                        <outlet property="dateField" destination="Sd3-gb-nnl" id="VXH-72-JdT"/>
-                        <outlet property="descriptionField" destination="uft-AE-Cwa" id="YSB-3d-O5s"/>
-                        <outlet property="paymentTypeControl" destination="ntl-iz-rkN" id="eXG-F2-x30"/>
-                        <outlet property="spinner" destination="As1-dB-Cz2" id="SW1-zd-LM9"/>
+                        <outlet property="amountField" destination="tDz-N1-k6F" id="isM-w5-JdO"/>
+                        <outlet property="bottomConstraint" destination="gYZ-wY-f9W" id="hFj-Br-2Xk"/>
+                        <outlet property="businessField" destination="A4V-UU-r05" id="bvR-pd-4ap"/>
+                        <outlet property="categoryField" destination="zmX-d8-vAw" id="nF1-OD-gsC"/>
+                        <outlet property="dateField" destination="Sd3-gb-nnl" id="gQ3-Xh-m4Z"/>
+                        <outlet property="descriptionField" destination="uft-AE-Cwa" id="qGm-tX-n6M"/>
+                        <outlet property="paymentTypeControl" destination="ntl-iz-rkN" id="P3w-o1-Ix9"/>
+                        <outlet property="spinner" destination="As1-dB-Cz2" id="BtJ-lt-3bH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nml-SD-HhS" userLabel="First Responder" sceneMemberID="firstResponder"/>

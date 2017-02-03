@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TXError : NSObject {
+class TXError : NSObject, Error {
 	var error : Error?
 	var readableMessage : String
 	var debugMessage : String?

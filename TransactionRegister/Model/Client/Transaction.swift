@@ -24,10 +24,7 @@ class Transaction : NSObject {
 	var categoryName : String?
 	var desc : String?
 	
-	//TODO: Can remove this later?
-	override init() {
-		
-	}
+	override init() {}
 	
 	init(dict : Dictionary<String, Any>) {
 		self.transactionId = dict["transactionId"] as! Int

@@ -144,7 +144,7 @@ class Client : NSObject {
 	
 	private static func monthAndYearQueryString(date:Date) -> String {
 		let format = DateFormatter()
-		format.dateFormat = "'month='MM'&year='YYYY'";
+		format.dateFormat = "'month='MM'&year='yyyy'";
 		return format.string(from: date)
 	}
 }

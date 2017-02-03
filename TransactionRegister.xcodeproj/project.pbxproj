@@ -7,25 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46491DBE558300937992 /* TransactionsViewController.m */; };
-		071B465A1DBF9D4700937992 /* TXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46591DBF9D4700937992 /* TXTableView.m */; };
-		071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46751DC01F6500937992 /* TransactionTableViewCell.m */; };
-		071B46791DC1675800937992 /* TXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071B46781DC1675800937992 /* TXViewController.m */; };
-		0720E94A1DC2BBFA005243DB /* AddTransactionPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0720E9491DC2BBFA005243DB /* AddTransactionPopUpViewController.m */; };
-		0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */; };
-		0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB531D7CDBA900C22302 /* UIColor+colors.m */; };
-		0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */; };
-		0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */; };
 		0756712A1E2D8E62008944CF /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075671291E2D8E62008944CF /* SectionHeaderView.xib */; };
 		07901F021DBA719900504A5A /* budget.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F001DBA719900504A5A /* budget.png */; };
 		07901F031DBA719900504A5A /* transactions.png in Resources */ = {isa = PBXBuildFile; fileRef = 07901F011DBA719900504A5A /* transactions.png */; };
-		07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1AC1D7C80D0008FE0AF /* main.m */; };
-		07BAF1B01D7C80D0008FE0AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1AF1D7C80D0008FE0AF /* AppDelegate.m */; };
 		07BAF1CA1D7C81FC008FE0AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07BAF1C31D7C81FC008FE0AF /* Assets.xcassets */; };
 		07BAF1CB1D7C81FC008FE0AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BAF1C41D7C81FC008FE0AF /* LaunchScreen.storyboard */; };
 		07BAF1CC1D7C81FC008FE0AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07BAF1C51D7C81FC008FE0AF /* Main.storyboard */; };
-		07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */; };
-		07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E734481E2D914400444EB1 /* SectionHeaderView.m */; };
+		07C4BF731E32E84C00EE4C29 /* UIColor+colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4BF721E32E84C00EE4C29 /* UIColor+colors.swift */; };
+		07C4BF751E32F10600EE4C29 /* TXTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4BF741E32F10600EE4C29 /* TXTableView.swift */; };
+		07C4BF771E32F1B000EE4C29 /* TXNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4BF761E32F1B000EE4C29 /* TXNavigationViewController.swift */; };
+		07C4BF791E32F29400EE4C29 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4BF781E32F29400EE4C29 /* SectionHeaderView.swift */; };
 		07E734721E3011F000444EB1 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734711E3011F000444EB1 /* Amount.swift */; };
 		07E734741E311B3B00444EB1 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734731E311B3B00444EB1 /* PaymentType.swift */; };
 		07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734781E31512300444EB1 /* PaymentTypeSum.swift */; };
@@ -34,43 +25,29 @@
 		07E734811E32624E00444EB1 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734801E32624E00444EB1 /* Client.swift */; };
 		07E734831E32641100444EB1 /* TXError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734821E32641100444EB1 /* TXError.swift */; };
 		07E734851E326B5A00444EB1 /* TXResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734841E326B5A00444EB1 /* TXResponse.swift */; };
+		07E7348C1E32C1A400444EB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7348B1E32C1A400444EB1 /* AppDelegate.swift */; };
+		07E7348E1E32C71F00444EB1 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7348D1E32C71F00444EB1 /* CategoriesViewController.swift */; };
+		07E734901E32D68100444EB1 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7348F1E32D68100444EB1 /* TransactionTableViewCell.swift */; };
+		07E734921E32DBD900444EB1 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734911E32DBD900444EB1 /* CategoryTableViewCell.swift */; };
+		07E734941E32E1AA00444EB1 /* TXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734931E32E1AA00444EB1 /* TXViewController.swift */; };
+		07E734961E32E63000444EB1 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734951E32E63000444EB1 /* TransactionsViewController.swift */; };
+		07E734981E32E65100444EB1 /* AddTransactionPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734971E32E65100444EB1 /* AddTransactionPopUpViewController.swift */; };
+		07E7349A1E32E66000444EB1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734991E32E66000444EB1 /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		071B46481DBE558300937992 /* TransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionsViewController.h; sourceTree = "<group>"; };
-		071B46491DBE558300937992 /* TransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionsViewController.m; sourceTree = "<group>"; };
-		071B46581DBF9D4700937992 /* TXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTableView.h; sourceTree = "<group>"; };
-		071B46591DBF9D4700937992 /* TXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTableView.m; sourceTree = "<group>"; };
-		071B46741DC01F6500937992 /* TransactionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTableViewCell.h; sourceTree = "<group>"; };
-		071B46751DC01F6500937992 /* TransactionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionTableViewCell.m; sourceTree = "<group>"; };
-		071B46771DC1675800937992 /* TXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXViewController.h; sourceTree = "<group>"; };
-		071B46781DC1675800937992 /* TXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXViewController.m; sourceTree = "<group>"; };
-		0720E9481DC2BBFA005243DB /* AddTransactionPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTransactionPopUpViewController.h; sourceTree = "<group>"; };
-		0720E9491DC2BBFA005243DB /* AddTransactionPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTransactionPopUpViewController.m; sourceTree = "<group>"; };
-		0734FB4B1D7C90DE00C22302 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewCell.h; sourceTree = "<group>"; };
-		0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewCell.m; sourceTree = "<group>"; };
-		0734FB521D7CDBA900C22302 /* UIColor+colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+colors.h"; sourceTree = "<group>"; };
-		0734FB531D7CDBA900C22302 /* UIColor+colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colors.m"; sourceTree = "<group>"; };
-		0734FB561D7CDC2300C22302 /* TXNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXNavigationViewController.h; sourceTree = "<group>"; };
-		0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXNavigationViewController.m; sourceTree = "<group>"; };
-		0734FB6D1D7DFDF000C22302 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
-		0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		075671291E2D8E62008944CF /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		07901F001DBA719900504A5A /* budget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = budget.png; sourceTree = "<group>"; };
 		07901F011DBA719900504A5A /* transactions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transactions.png; sourceTree = "<group>"; };
 		07BAF1A81D7C80D0008FE0AF /* TransactionRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransactionRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		07BAF1AC1D7C80D0008FE0AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		07BAF1AE1D7C80D0008FE0AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		07BAF1AF1D7C80D0008FE0AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07BAF1BC1D7C80D0008FE0AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07BAF1C31D7C81FC008FE0AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07BAF1C41D7C81FC008FE0AF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07BAF1C51D7C81FC008FE0AF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		07BAF1C71D7C81FC008FE0AF /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
-		07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
-		07E734471E2D914400444EB1 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
-		07E734481E2D914400444EB1 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
-		07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransactionRegister-Bridging-Header.h"; sourceTree = "<group>"; };
+		07C4BF721E32E84C00EE4C29 /* UIColor+colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colors.swift"; sourceTree = "<group>"; };
+		07C4BF741E32F10600EE4C29 /* TXTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXTableView.swift; sourceTree = "<group>"; };
+		07C4BF761E32F1B000EE4C29 /* TXNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXNavigationViewController.swift; sourceTree = "<group>"; };
+		07C4BF781E32F29400EE4C29 /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		07E734711E3011F000444EB1 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		07E734731E311B3B00444EB1 /* PaymentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
 		07E734781E31512300444EB1 /* PaymentTypeSum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTypeSum.swift; sourceTree = "<group>"; };
@@ -79,6 +56,14 @@
 		07E734801E32624E00444EB1 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		07E734821E32641100444EB1 /* TXError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXError.swift; sourceTree = "<group>"; };
 		07E734841E326B5A00444EB1 /* TXResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXResponse.swift; sourceTree = "<group>"; };
+		07E7348B1E32C1A400444EB1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07E7348D1E32C71F00444EB1 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		07E7348F1E32D68100444EB1 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		07E734911E32DBD900444EB1 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		07E734931E32E1AA00444EB1 /* TXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXViewController.swift; sourceTree = "<group>"; };
+		07E734951E32E63000444EB1 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		07E734971E32E65100444EB1 /* AddTransactionPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionPopUpViewController.swift; sourceTree = "<group>"; };
+		07E734991E32E66000444EB1 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +80,7 @@
 		0734FB511D7CDBA900C22302 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0734FB521D7CDBA900C22302 /* UIColor+colors.h */,
-				0734FB531D7CDBA900C22302 /* UIColor+colors.m */,
+				07C4BF721E32E84C00EE4C29 /* UIColor+colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -104,12 +88,9 @@
 		0734FB551D7CDC2300C22302 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				0734FB561D7CDC2300C22302 /* TXNavigationViewController.h */,
-				0734FB571D7CDC2300C22302 /* TXNavigationViewController.m */,
-				071B46581DBF9D4700937992 /* TXTableView.h */,
-				071B46591DBF9D4700937992 /* TXTableView.m */,
-				071B46771DC1675800937992 /* TXViewController.h */,
-				071B46781DC1675800937992 /* TXViewController.m */,
+				07E734931E32E1AA00444EB1 /* TXViewController.swift */,
+				07C4BF741E32F10600EE4C29 /* TXTableView.swift */,
+				07C4BF761E32F1B000EE4C29 /* TXNavigationViewController.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -158,11 +139,8 @@
 				07BAF1C21D7C81FC008FE0AF /* View */,
 				07BAF1C61D7C81FC008FE0AF /* Controller */,
 				07BAF1C91D7C81FC008FE0AF /* Model */,
-				07BAF1AE1D7C80D0008FE0AF /* AppDelegate.h */,
-				07BAF1AF1D7C80D0008FE0AF /* AppDelegate.m */,
-				07E734701E3011EF00444EB1 /* TransactionRegister-Bridging-Header.h */,
 				07BAF1BC1D7C80D0008FE0AF /* Info.plist */,
-				07BAF1AC1D7C80D0008FE0AF /* main.m */,
+				07E7348B1E32C1A400444EB1 /* AppDelegate.swift */,
 			);
 			path = TransactionRegister;
 			sourceTree = "<group>";
@@ -175,13 +153,10 @@
 				07BAF1C31D7C81FC008FE0AF /* Assets.xcassets */,
 				07BAF1C41D7C81FC008FE0AF /* LaunchScreen.storyboard */,
 				07BAF1C51D7C81FC008FE0AF /* Main.storyboard */,
-				0734FB4B1D7C90DE00C22302 /* CategoryTableViewCell.h */,
-				0734FB4C1D7C90DE00C22302 /* CategoryTableViewCell.m */,
-				071B46741DC01F6500937992 /* TransactionTableViewCell.h */,
-				071B46751DC01F6500937992 /* TransactionTableViewCell.m */,
 				075671291E2D8E62008944CF /* SectionHeaderView.xib */,
-				07E734471E2D914400444EB1 /* SectionHeaderView.h */,
-				07E734481E2D914400444EB1 /* SectionHeaderView.m */,
+				07E7348F1E32D68100444EB1 /* TransactionTableViewCell.swift */,
+				07E734911E32DBD900444EB1 /* CategoryTableViewCell.swift */,
+				07C4BF781E32F29400EE4C29 /* SectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,14 +165,10 @@
 			isa = PBXGroup;
 			children = (
 				0734FB551D7CDC2300C22302 /* Reusable */,
-				07BAF1C71D7C81FC008FE0AF /* CategoriesViewController.h */,
-				07BAF1C81D7C81FC008FE0AF /* CategoriesViewController.m */,
-				0734FB6D1D7DFDF000C22302 /* CategoryViewController.h */,
-				0734FB6E1D7DFDF000C22302 /* CategoryViewController.m */,
-				071B46481DBE558300937992 /* TransactionsViewController.h */,
-				071B46491DBE558300937992 /* TransactionsViewController.m */,
-				0720E9481DC2BBFA005243DB /* AddTransactionPopUpViewController.h */,
-				0720E9491DC2BBFA005243DB /* AddTransactionPopUpViewController.m */,
+				07E7348D1E32C71F00444EB1 /* CategoriesViewController.swift */,
+				07E734991E32E66000444EB1 /* CategoryViewController.swift */,
+				07E734951E32E63000444EB1 /* TransactionsViewController.swift */,
+				07E734971E32E65100444EB1 /* AddTransactionPopUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,7 +214,7 @@
 				TargetAttributes = {
 					07BAF1A71D7C80D0008FE0AF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = G9JN5J3VZ9;
+						DevelopmentTeam = 4PCMAPG3W2;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -288,26 +259,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				07E7347F1E31769500444EB1 /* Transaction.swift in Sources */,
-				071B465A1DBF9D4700937992 /* TXTableView.m in Sources */,
 				07E734831E32641100444EB1 /* TXError.swift in Sources */,
+				07C4BF751E32F10600EE4C29 /* TXTableView.swift in Sources */,
 				07E734741E311B3B00444EB1 /* PaymentType.swift in Sources */,
+				07C4BF791E32F29400EE4C29 /* SectionHeaderView.swift in Sources */,
+				07C4BF731E32E84C00EE4C29 /* UIColor+colors.swift in Sources */,
 				07E734811E32624E00444EB1 /* Client.swift in Sources */,
-				0734FB581D7CDC2300C22302 /* TXNavigationViewController.m in Sources */,
-				07BAF1B01D7C80D0008FE0AF /* AppDelegate.m in Sources */,
-				0734FB6F1D7DFDF000C22302 /* CategoryViewController.m in Sources */,
-				07BAF1CD1D7C81FC008FE0AF /* CategoriesViewController.m in Sources */,
-				07BAF1AD1D7C80D0008FE0AF /* main.m in Sources */,
+				07E734981E32E65100444EB1 /* AddTransactionPopUpViewController.swift in Sources */,
 				07E734721E3011F000444EB1 /* Amount.swift in Sources */,
-				071B46791DC1675800937992 /* TXViewController.m in Sources */,
-				0734FB4D1D7C90DE00C22302 /* CategoryTableViewCell.m in Sources */,
-				0734FB541D7CDBA900C22302 /* UIColor+colors.m in Sources */,
-				071B46761DC01F6500937992 /* TransactionTableViewCell.m in Sources */,
-				0720E94A1DC2BBFA005243DB /* AddTransactionPopUpViewController.m in Sources */,
+				07E734901E32D68100444EB1 /* TransactionTableViewCell.swift in Sources */,
+				07E734941E32E1AA00444EB1 /* TXViewController.swift in Sources */,
 				07E734851E326B5A00444EB1 /* TXResponse.swift in Sources */,
 				07E7347D1E3174DE00444EB1 /* BudgetCategory.swift in Sources */,
-				07E734491E2D914400444EB1 /* SectionHeaderView.m in Sources */,
+				07E7348E1E32C71F00444EB1 /* CategoriesViewController.swift in Sources */,
+				07E734961E32E63000444EB1 /* TransactionsViewController.swift in Sources */,
+				07E734921E32DBD900444EB1 /* CategoryTableViewCell.swift in Sources */,
 				07E734791E31512300444EB1 /* PaymentTypeSum.swift in Sources */,
-				071B464A1DBE558300937992 /* TransactionsViewController.m in Sources */,
+				07E7349A1E32E66000444EB1 /* CategoryViewController.swift in Sources */,
+				07E7348C1E32C1A400444EB1 /* AppDelegate.swift in Sources */,
+				07C4BF771E32F1B000EE4C29 /* TXNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,12 +376,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = G9JN5J3VZ9;
+				DEVELOPMENT_TEAM = 4PCMAPG3W2;
 				INFOPLIST_FILE = TransactionRegister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.byu.TransactionRegister;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.byu.transaction-register";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "TransactionRegister/TransactionRegister-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -422,12 +393,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = G9JN5J3VZ9;
+				DEVELOPMENT_TEAM = 4PCMAPG3W2;
 				INFOPLIST_FILE = TransactionRegister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.byu.TransactionRegister;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.byu.transaction-register";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "TransactionRegister/TransactionRegister-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
