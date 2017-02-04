@@ -15,10 +15,10 @@ class TransactionTableViewCell: UITableViewCell {
 		return format
 	}()
 
-	@IBOutlet weak var businessLabel: UILabel!
-	@IBOutlet weak var dateLabel: UILabel!
-	@IBOutlet weak var amountLabel: UILabel!
-	@IBOutlet weak var categoryLabel: UILabel!
+	@IBOutlet weak private var businessLabel: UILabel!
+	@IBOutlet weak private var dateLabel: UILabel!
+	@IBOutlet weak private var amountLabel: UILabel!
+	@IBOutlet weak private var categoryLabel: UILabel!
 	
 	var transaction: Transaction? {
 		didSet {

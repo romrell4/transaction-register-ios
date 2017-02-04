@@ -9,8 +9,8 @@
 import UIKit
 
 class TransactionsViewController: TXViewController, UITableViewDataSource, UITableViewDelegate, PopUpDelegate {
-	@IBOutlet weak var spinner: UIActivityIndicatorView!
-	@IBOutlet weak var tableView: TXTableView!
+	@IBOutlet weak private var spinner: UIActivityIndicatorView!
+	@IBOutlet weak private var tableView: TXTableView!
 	
 	private let ADD_TX_ID = "addTransaction"
 	private let EDIT_TX_ID = "editTransaction"
@@ -134,8 +134,6 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		self.performSegue(withIdentifier: ADD_TX_ID, sender: nil)
 	}
 	
-	//MARK: Custom Functions
-	
 	func loadData() {
 		self.tabBarController?.navigationItem.leftBarButtonItem?.isEnabled = false
 		self.tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false
@@ -145,7 +143,9 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		self.loadSums()
 	}
 	
-	func loadTransactions(date: Date) {
+	//MARK: Custom Functions
+	
+	private func loadTransactions(date: Date) {
 		self.countdown += 1
 		Client.getAllTransactions(date: date, paymentType: self.currentFilter) { (transactions, error) in
 			if error != nil {
@@ -169,7 +169,7 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		}
 	}
 	
-	func loadSums() {
+	private func loadSums() {
 		self.countdown += 1
 		Client.getPaymentTypeSums { (sums, error) in
 			if error != nil {
@@ -187,7 +187,7 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		}
 	}
 	
-	func decrementCountdown() {
+	private func decrementCountdown() {
 		self.countdown -= 1
 		if (self.countdown == 0) {
 			self.spinner.stopAnimating()

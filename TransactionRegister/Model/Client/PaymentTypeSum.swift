@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PaymentTypeSum : NSObject {
+class PaymentTypeSum {
 	var paymentType : PaymentType?
 	var total : Amount
 	

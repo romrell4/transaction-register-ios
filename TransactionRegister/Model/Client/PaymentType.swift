@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PaymentType : NSObject {
+class PaymentType {
 	private static let PAYMENT_TYPES = [
 		PaymentType(realType: "CREDIT"),
 		PaymentType(realType: "DEBIT"),

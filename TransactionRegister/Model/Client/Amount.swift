@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Amount : NSObject {
+class Amount : CustomStringConvertible {
 	var value : Double
 	
 	init(value: Double) {
@@ -21,7 +21,7 @@ class Amount : NSObject {
 		return format.string(from: NSNumber(floatLiteral: self.value))
 	}
 	
-	override var description: String {
+	public var description: String {
 		return "\(self.value)"
 	}
 }
