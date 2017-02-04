@@ -39,7 +39,7 @@ class Transaction {
 	
 	func toDictionary() -> Dictionary<String, Any> {
 		var dict = Dictionary<String, Any>()
-		//TODO: See if this is the right way to do it (maybe use a guard let?)
+		
 		if self.transactionId != -1 {
 			dict["transactionId"] = self.transactionId
 		}

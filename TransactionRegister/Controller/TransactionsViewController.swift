@@ -25,6 +25,7 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 	private var backgroundShade: UIView?
 	private var countdown: Int = 0
 	private var currentFilter: PaymentType?
+	private var currentDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,11 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 	//MARK: UITableViewDataSource/Delegate callbacks
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return 2
+	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return section == 0 ? 30 : 0
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -71,12 +76,23 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		return header;
 	}
 	
-	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 30
+	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		return section == 0 ? 0 : 30
+	}
+	
+	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		return "Loading More Transactions..."
+	}
+	
+	func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+		if section == 1 {
+			loadTransactions()
+			self.currentDate = Calendar.current.date(byAdding: .month, value: -1, to: self.currentDate)!
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.transactions.count
+		return section == 0 ? self.transactions.count : 0
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,7 +121,7 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 	//MARK: Listeners
 	
 	func filter() {
-		let alert = UIAlertController(title: "What ccount would you like to filter by?", message: nil, preferredStyle: .actionSheet)
+		let alert = UIAlertController(title: "What account would you like to filter by?", message: nil, preferredStyle: .actionSheet)
 		for sum in self.sums {
 			let title = sum.paymentType != nil ? sum.paymentType!.prettyType : "All"
 			alert.addAction(UIAlertAction(title: title, style: .default, handler: { (_) in
@@ -139,31 +155,20 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		self.tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false
 		self.spinner.startAnimating()
 		
-		self.loadTransactions(date: Date())
+		self.transactions = []
+		self.currentDate = Date()
 		self.loadSums()
 	}
 	
 	//MARK: Custom Functions
 	
-	private func loadTransactions(date: Date) {
+	private func loadTransactions() {
 		self.countdown += 1
-		Client.getAllTransactions(date: date, paymentType: self.currentFilter) { (transactions, error) in
+		Client.getAllTransactions(date: self.currentDate, paymentType: self.currentFilter) { (transactions, error) in
 			if error != nil {
 				self.showError(error: error!)
 			} else {
-				if transactions!.count == 0 {
-					//TODO: Instead, load whenever the bottom is hit
-					
-					//Load the next month's transactions
-					var comp = DateComponents()
-					comp.month = -1
-					let newDate = Calendar.current.date(byAdding: comp, to: date)
-					
-					//NOTE: This will go into an infinite loop if no transactions are ever found
-					self.loadTransactions(date: newDate!)
-				} else {
-					self.transactions = transactions!
-				}
+				self.transactions.append(contentsOf: transactions!)
 			}
 			self.decrementCountdown()
 		}
