@@ -155,8 +155,10 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		self.tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false
 		self.spinner.startAnimating()
 		
-		self.transactions = []
 		self.currentDate = Date()
+		self.transactions = []
+		self.tableView.reloadData()
+		
 		self.loadSums()
 	}
 	

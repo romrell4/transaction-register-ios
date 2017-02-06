@@ -50,14 +50,14 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 			self.categoryField.text = transaction.categoryName
 			self.selectedCategoryId = transaction.categoryId
 			self.descriptionField.text = transaction.desc
+		} else {
+			//If there is a default, select it. Otherwise, default to the first one
+			self.paymentTypeControl.selectedSegmentIndex = self.defaultPaymentType != nil ? self.defaultPaymentType!.orderIndex() : 0
 		}
 		
 		//Listen for when the keyboard enters and exists the screen
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
-		
-		//If there is a default, select it. Otherwise, default to the first one
-		self.paymentTypeControl.selectedSegmentIndex = self.defaultPaymentType != nil ? self.defaultPaymentType!.orderIndex() : 0
 		
 		//Setup a special date picker for the keyboard
 		let datePicker = UIDatePicker()
