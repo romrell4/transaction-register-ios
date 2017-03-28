@@ -25,6 +25,8 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 	private var backgroundShade: UIView?
 	private var countdown: Int = 0
 	private var currentFilter: PaymentType?
+    
+    //TODO: Add swipe to delete
 
     override func viewDidLoad() {
         super.viewDidLoad()

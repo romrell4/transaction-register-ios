@@ -42,6 +42,7 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 
 		//Load the data if we're editing an existing transaction
 		if let transaction = self.transaction {
+            //TODO: Not working
 			self.paymentTypeControl.selectedSegmentIndex = transaction.paymentType!.orderIndex()
 			self.businessField.text = transaction.business
 			self.dateField.text = dateFormat.string(from: transaction.purchaseDate!)
@@ -95,11 +96,12 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 	func textFieldDidBeginEditing(_ textField: UITextField) {
 		self.selectedField = textField
 		
+        //TODO: See why this isn't working when we are editing a transaction
 		if textField == self.dateField && self.dateField.text == "" {
 			self.purchaseDate = Date()
 			
 			textField.text = dateFormat.string(from: self.purchaseDate!)
-		} else if textField == self.categoryField {
+		} else if textField == self.categoryField { //TODO: Add a statement here that will load up the selected category when editing a transaction
 			self.selectedCategoryId = self.categories[0].categoryId
 			textField.text = self.categories[0].name
 		}
