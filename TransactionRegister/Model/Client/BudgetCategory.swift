@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BudgetCategory : NSObject {
+class BudgetCategory : CustomStringConvertible {
 	var categoryId : Int
 	var name : String?
 	var month : String?
@@ -25,7 +25,7 @@ class BudgetCategory : NSObject {
 		self.amountBudgeted = Amount(value: dict["amountBudgeted"] as! Double)
 	}
 	
-	override var description: String {
+	public var description: String {
 		return "\(self.name!) \(self.month!). Spent: \(self.amountSpent), Left: \(self.amountLeft), Budget: \(self.amountBudgeted)"
 	}
 }

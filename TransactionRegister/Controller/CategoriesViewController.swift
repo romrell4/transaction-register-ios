@@ -11,12 +11,12 @@ import UIKit
 class CategoriesViewController: TXViewController, UITableViewDataSource, UITableViewDelegate {
 	private static let MONTHS_TO_SHOW = 6
 
-	@IBOutlet weak var spinner: UIActivityIndicatorView!
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak private var spinner: UIActivityIndicatorView!
+	@IBOutlet weak private var tableView: UITableView!
 	
-	var categories : [BudgetCategory] = []
-	var filterDates : [Date] = []
-	var currentFilterDate = Date()
+	private var categories : [BudgetCategory] = []
+	private var filterDates : [Date] = []
+	private var currentFilterDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +80,7 @@ class CategoriesViewController: TXViewController, UITableViewDataSource, UITable
 		self.present(alert, animated: true, completion: nil)
 	}
 	
-	func loadData(date:Date) {
+	private func loadData(date:Date) {
 		self.spinner.startAnimating()
 		Client.getBudget(date: date) { (categories, error) in
 			self.spinner.stopAnimating()

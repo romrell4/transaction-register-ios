@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TXError : NSObject, Error {
+class TXError : CustomStringConvertible, Error {
 	var error : Error?
 	var readableMessage : String
 	var debugMessage : String?
@@ -19,7 +19,7 @@ class TXError : NSObject, Error {
 		self.debugMessage = debugMessage
 	}
 	
-	override var description: String {
+	public var description: String {
 		return "Error: \(self.error)\nReadable Message: \(self.readableMessage)\nDebug Message: \(self.debugMessage ?? "nil")";
 	}
 }

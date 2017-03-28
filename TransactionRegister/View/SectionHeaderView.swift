@@ -11,5 +11,4 @@ import UIKit
 class SectionHeaderView: UIView {
 	@IBOutlet weak var textLabel: UILabel!
 	@IBOutlet weak var detailTextLabel: UILabel!
-
 }

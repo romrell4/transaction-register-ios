@@ -14,9 +14,8 @@ enum CategoryProperty {
 }
 
 class CategoryTableViewCell: UITableViewCell {
-	//TODO: Make all fields private that don't have to be public
-	@IBOutlet weak var nameLabel: UILabel!
-	@IBOutlet weak var amountSpentLabel: UILabel!
+	@IBOutlet weak private var nameLabel: UILabel!
+	@IBOutlet weak private var amountSpentLabel: UILabel!
 	
 	func setup(category: BudgetCategory, mainProperty: CategoryProperty) -> Void {
 		switch mainProperty {

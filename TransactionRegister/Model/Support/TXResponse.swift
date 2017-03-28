@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TXResponse : NSObject {
+class TXResponse {
 	private static let DEFAULT_PATH_TO_READABLE_ERROR = "message"
 	private static let DEFAULT_ERROR_MESSAGE = "The server encountered an error. Please try again later."
 	var data : Data?
@@ -23,7 +23,7 @@ class TXResponse : NSObject {
 		return me
 	}
 	
-	override init() {}
+	init() {}
 	
 	init(error:TXError) {
 		self.error = error

@@ -13,9 +13,9 @@ protocol PopUpDelegate {
 }
 
 class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
-	public var delegate: PopUpDelegate?
-	public var defaultPaymentType: PaymentType?
-	public var transaction: Transaction?
+	var delegate: PopUpDelegate?
+	var defaultPaymentType: PaymentType?
+	var transaction: Transaction?
 	
 	@IBOutlet weak private var spinner: UIActivityIndicatorView!
 	@IBOutlet weak private var bottomConstraint: NSLayoutConstraint!
@@ -51,14 +51,14 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 			self.categoryField.text = transaction.categoryName
 			self.selectedCategoryId = transaction.categoryId
 			self.descriptionField.text = transaction.desc
+		} else {
+			//If there is a default, select it. Otherwise, default to the first one
+			self.paymentTypeControl.selectedSegmentIndex = self.defaultPaymentType != nil ? self.defaultPaymentType!.orderIndex() : 0
 		}
 		
 		//Listen for when the keyboard enters and exists the screen
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
-		
-		//If there is a default, select it. Otherwise, default to the first one
-		self.paymentTypeControl.selectedSegmentIndex = self.defaultPaymentType != nil ? self.defaultPaymentType!.orderIndex() : 0
 		
 		//Setup a special date picker for the keyboard
 		let datePicker = UIDatePicker()
@@ -190,9 +190,29 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 		self.dateField.text = dateFormat.string(from: picker.date)
 	}
 	
+	func togglePositiveNegative() {
+		guard let amountText = self.amountField.text else {
+			return
+		}
+		
+		if amountText.hasPrefix("-") {
+			self.amountField.text = String(amountText.characters.dropFirst())
+		} else {
+			self.amountField.text = "-" + amountText
+		}
+	}
+	
+	func keyboardWillShow(notification: NSNotification) {
+		self.bottomConstraint.constant = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.size.height
+	}
+	
+	func keyboardWillHide(notification: NSNotification) {
+		self.bottomConstraint.constant = 0
+	}
+	
 	//MARK: Custom Functions
 	
-	func createNextToolbarWithNegative(negative: Bool) -> UIToolbar {
+	private func createNextToolbarWithNegative(negative: Bool) -> UIToolbar {
 		let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: TOOLBAR_HEIGHT))
 		let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 		let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
@@ -206,7 +226,7 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 		return toolbar
 	}
 	
-	func getTransactionIfValid() throws -> Transaction {
+	private func getTransactionIfValid() throws -> Transaction {
 		var errorFields = [UITextField]()
 		
 		let tx = Transaction()
@@ -243,29 +263,9 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 		return tx
 	}
 	
-	func togglePositiveNegative() {
-		guard let amountText = self.amountField.text else {
-			return
-		}
-		
-		if amountText.hasPrefix("-") {
-			self.amountField.text = String(amountText.characters.dropFirst())
-		} else {
-			self.amountField.text = "-" + amountText
-		}
-	}
-	
-	func dismissPopUp(changes: Bool) {
+	private func dismissPopUp(changes: Bool) {
 		self.delegate?.popUpDismissed(changes: changes)
 		self.dismiss(animated: true, completion: nil)
-	}
-	
-	func keyboardWillShow(notification: NSNotification) {
-		self.bottomConstraint.constant = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.size.height
-	}
-	
-	func keyboardWillHide(notification: NSNotification) {
-		self.bottomConstraint.constant = 0
 	}
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Transaction : NSObject {
+class Transaction {
 	private static let dateFormat : DateFormatter = {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "MM/dd/yyyy HH:mm:ss"
@@ -24,7 +24,7 @@ class Transaction : NSObject {
 	var categoryName : String?
 	var desc : String?
 	
-	override init() {}
+	init() {}
 	
 	init(dict : Dictionary<String, Any>) {
 		self.transactionId = dict["transactionId"] as! Int
@@ -39,7 +39,7 @@ class Transaction : NSObject {
 	
 	func toDictionary() -> Dictionary<String, Any> {
 		var dict = Dictionary<String, Any>()
-		//TODO: See if this is the right way to do it (maybe use a guard let?)
+		
 		if self.transactionId != -1 {
 			dict["transactionId"] = self.transactionId
 		}

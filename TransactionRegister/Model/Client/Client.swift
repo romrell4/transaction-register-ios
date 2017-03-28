@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Client : NSObject {
+class Client {
 	private static let BASE_URL = "https://transaction-register.herokuapp.com"
 	private static let DEFAULT_ERROR_MESSAGE = "There was an error loading the data from the service. Please talk to your husband about it. :)"
 	

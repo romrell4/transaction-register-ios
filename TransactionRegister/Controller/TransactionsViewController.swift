@@ -9,8 +9,8 @@
 import UIKit
 
 class TransactionsViewController: TXViewController, UITableViewDataSource, UITableViewDelegate, PopUpDelegate {
-	@IBOutlet weak var spinner: UIActivityIndicatorView!
-	@IBOutlet weak var tableView: TXTableView!
+	@IBOutlet weak private var spinner: UIActivityIndicatorView!
+	@IBOutlet weak private var tableView: TXTableView!
 	
 	private let ADD_TX_ID = "addTransaction"
 	private let EDIT_TX_ID = "editTransaction"
@@ -25,6 +25,7 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 	private var backgroundShade: UIView?
 	private var countdown: Int = 0
 	private var currentFilter: PaymentType?
+	private var currentDate = Date()
     
     //TODO: Add swipe to delete
 
@@ -57,7 +58,11 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 	//MARK: UITableViewDataSource/Delegate callbacks
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return 2
+	}
+	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return section == 0 ? 30 : 0
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -73,12 +78,23 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		return header;
 	}
 	
-	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 30
+	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		return section == 0 ? 0 : 30
+	}
+	
+	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		return "Loading More Transactions..."
+	}
+	
+	func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+		if section == 1 {
+			loadTransactions()
+			self.currentDate = Calendar.current.date(byAdding: .month, value: -1, to: self.currentDate)!
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.transactions.count
+		return section == 0 ? self.transactions.count : 0
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +123,7 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 	//MARK: Listeners
 	
 	func filter() {
-		let alert = UIAlertController(title: "What ccount would you like to filter by?", message: nil, preferredStyle: .actionSheet)
+		let alert = UIAlertController(title: "What account would you like to filter by?", message: nil, preferredStyle: .actionSheet)
 		for sum in self.sums {
 			let title = sum.paymentType != nil ? sum.paymentType!.prettyType : "All"
 			alert.addAction(UIAlertAction(title: title, style: .default, handler: { (_) in
@@ -136,42 +152,33 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		self.performSegue(withIdentifier: ADD_TX_ID, sender: nil)
 	}
 	
-	//MARK: Custom Functions
-	
 	func loadData() {
 		self.tabBarController?.navigationItem.leftBarButtonItem?.isEnabled = false
 		self.tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = false
 		self.spinner.startAnimating()
 		
-		self.loadTransactions(date: Date())
+		self.currentDate = Date()
+		self.transactions = []
+		self.tableView.reloadData()
+		
 		self.loadSums()
 	}
 	
-	func loadTransactions(date: Date) {
+	//MARK: Custom Functions
+	
+	private func loadTransactions() {
 		self.countdown += 1
-		Client.getAllTransactions(date: date, paymentType: self.currentFilter) { (transactions, error) in
+		Client.getAllTransactions(date: self.currentDate, paymentType: self.currentFilter) { (transactions, error) in
 			if error != nil {
 				self.showError(error: error!)
 			} else {
-				if transactions!.count == 0 {
-					//TODO: Instead, load whenever the bottom is hit
-					
-					//Load the next month's transactions
-					var comp = DateComponents()
-					comp.month = -1
-					let newDate = Calendar.current.date(byAdding: comp, to: date)
-					
-					//NOTE: This will go into an infinite loop if no transactions are ever found
-					self.loadTransactions(date: newDate!)
-				} else {
-					self.transactions = transactions!
-				}
+				self.transactions.append(contentsOf: transactions!)
 			}
 			self.decrementCountdown()
 		}
 	}
 	
-	func loadSums() {
+	private func loadSums() {
 		self.countdown += 1
 		Client.getPaymentTypeSums { (sums, error) in
 			if error != nil {
@@ -189,7 +196,7 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		}
 	}
 	
-	func decrementCountdown() {
+	private func decrementCountdown() {
 		self.countdown -= 1
 		if (self.countdown == 0) {
 			self.spinner.stopAnimating()
