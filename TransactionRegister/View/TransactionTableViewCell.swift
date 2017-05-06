@@ -26,8 +26,6 @@ class TransactionTableViewCell: UITableViewCell {
 				return
 			}
 			
-			//TODO: Fix formatting to enable amount to fit more
-			
 			self.businessLabel.text = transaction.business
 			self.dateLabel.text = TransactionTableViewCell.dateFormat.string(from: transaction.purchaseDate!)
 			self.amountLabel.text = transaction.amount?.formattedValue()
