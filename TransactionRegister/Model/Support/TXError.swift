@@ -20,6 +20,6 @@ class TXError : CustomStringConvertible, Error {
 	}
 	
 	public var description: String {
-		return "Error: \(self.error)\nReadable Message: \(self.readableMessage)\nDebug Message: \(self.debugMessage ?? "nil")";
+		return "Error: \(String(describing: self.error))\nReadable Message: \(self.readableMessage)\nDebug Message: \(self.debugMessage ?? "nil")";
 	}
 }
