@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let DATE_FORMAT = DateFormatter(format: "MMM yyyy")
+
 class CategoriesViewController: TXViewController, UITableViewDataSource, UITableViewDelegate {
 	private static let MONTHS_TO_SHOW = 6
 
@@ -51,9 +53,7 @@ class CategoriesViewController: TXViewController, UITableViewDataSource, UITable
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		let dateFormat = DateFormatter()
-		dateFormat.dateFormat = "MMM yyyy"
-		return String(format: "Budget - %@", dateFormat.string(from: self.currentFilterDate))
+		return String(format: "Budget - %@", DATE_FORMAT.string(from: self.currentFilterDate))
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

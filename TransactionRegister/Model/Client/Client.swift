@@ -143,8 +143,6 @@ class Client {
 	}
 	
 	private static func monthAndYearQueryString(date:Date) -> String {
-		let format = DateFormatter()
-		format.dateFormat = "'month='MM'&year='yyyy'";
-		return format.string(from: date)
+		return DateFormatter(format: "'month='MM'&year='yyyy'").string(from: date)
 	}
 }

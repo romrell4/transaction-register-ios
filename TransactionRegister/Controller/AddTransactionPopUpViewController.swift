@@ -12,6 +12,9 @@ protocol PopUpDelegate {
 	func popUpDismissed(changes: Bool)
 }
 
+private let TOOLBAR_HEIGHT: CGFloat = 44.0
+private let DATE_FORMAT = DateFormatter(format: "MM/dd/yyyy")
+
 class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 	var delegate: PopUpDelegate?
 	var defaultPaymentType: PaymentType?
@@ -26,12 +29,6 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 	@IBOutlet weak private var categoryField: UITextField!
 	@IBOutlet weak private var descriptionField: UITextField!
 
-	private let TOOLBAR_HEIGHT: CGFloat = 44.0
-	private let dateFormat: DateFormatter = {
-		let dateFormat = DateFormatter()
-		dateFormat.dateFormat = "MM/dd/yyyy"
-		return dateFormat
-	}()
 	private var categories = [BudgetCategory]()
 	private var selectedCategoryId = -1
 	private var purchaseDate: Date?
@@ -44,7 +41,7 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 		if let transaction = self.transaction {
 			self.paymentTypeControl.selectedSegmentIndex = transaction.paymentType!.orderIndex()
 			self.businessField.text = transaction.business
-			self.dateField.text = dateFormat.string(from: transaction.purchaseDate!)
+			self.dateField.text = DATE_FORMAT.string(from: transaction.purchaseDate!)
 			self.purchaseDate = transaction.purchaseDate
 			self.amountField.text = String(format: "%.2f", transaction.amount!.value)
 			self.categoryField.text = transaction.categoryName
@@ -98,7 +95,7 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 		if textField == self.dateField && self.dateField.text == "" {
             let now = Date()
 			self.purchaseDate = now
-			textField.text = dateFormat.string(from: now)
+			textField.text = DATE_FORMAT.string(from: now)
 		} else if textField == self.categoryField {
             //Get the index of the category
             let categoryIndex = self.categories.index(where: { return $0.categoryId == selectedCategoryId }) ?? 0
@@ -188,7 +185,7 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 	
 	func dateUpdated(picker: UIDatePicker) {
 		self.purchaseDate = picker.date
-		self.dateField.text = dateFormat.string(from: picker.date)
+		self.dateField.text = DATE_FORMAT.string(from: picker.date)
 	}
 	
 	func togglePositiveNegative() {

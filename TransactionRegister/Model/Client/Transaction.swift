@@ -8,13 +8,9 @@
 
 import Foundation
 
+private let DATE_FORMAT = DateFormatter(format: "MM/dd/yyyy HH:mm:ss")
+
 class Transaction {
-	private static let dateFormat : DateFormatter = {
-		let formatter = DateFormatter()
-		formatter.dateFormat = "MM/dd/yyyy HH:mm:ss"
-		return formatter
-	}()
-	
 	var transactionId : Int = -1
 	var paymentType : PaymentType?
 	var purchaseDate : Date?
@@ -29,7 +25,7 @@ class Transaction {
 	init(dict : Dictionary<String, Any>) {
 		self.transactionId = dict["transactionId"] as! Int
 		self.paymentType = PaymentType(realType: dict["paymentType"] as! String)
-		self.purchaseDate = Transaction.dateFormat.date(from: dict["purchaseDate"] as! String)
+		self.purchaseDate = DATE_FORMAT.date(from: dict["purchaseDate"] as! String)
 		self.business = dict["business"] as! String?
 		self.amount = Amount(value: dict["amount"] as! Double)
 		self.categoryId = dict["categoryId"] as! Int
@@ -44,7 +40,7 @@ class Transaction {
 			dict["transactionId"] = self.transactionId
 		}
 		dict["paymentType"] = self.paymentType?.realType
-		dict["purchaseDate"] = Transaction.dateFormat.string(from: self.purchaseDate!)
+		dict["purchaseDate"] = DATE_FORMAT.string(from: self.purchaseDate!)
 		dict["business"] = self.business
 		dict["amount"] = self.amount?.value
 		dict["categoryId"] = self.categoryId
