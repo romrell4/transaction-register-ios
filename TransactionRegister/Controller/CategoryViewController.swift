@@ -14,6 +14,6 @@ class CategoryViewController: TXViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		
+		//TODO: Do this :p
     }
 }

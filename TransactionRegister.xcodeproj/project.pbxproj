@@ -33,6 +33,7 @@
 		07E734961E32E63000444EB1 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734951E32E63000444EB1 /* TransactionsViewController.swift */; };
 		07E734981E32E65100444EB1 /* AddTransactionPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734971E32E65100444EB1 /* AddTransactionPopUpViewController.swift */; };
 		07E7349A1E32E66000444EB1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E734991E32E66000444EB1 /* CategoryViewController.swift */; };
+		0C15BB961EBE8DD400F60040 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C15BB951EBE8DD400F60040 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		07E734951E32E63000444EB1 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		07E734971E32E65100444EB1 /* AddTransactionPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionPopUpViewController.swift; sourceTree = "<group>"; };
 		07E734991E32E66000444EB1 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		0C15BB951EBE8DD400F60040 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				07E734931E32E1AA00444EB1 /* TXViewController.swift */,
 				07C4BF741E32F10600EE4C29 /* TXTableView.swift */,
 				07C4BF761E32F1B000EE4C29 /* TXNavigationViewController.swift */,
+				0C15BB951EBE8DD400F60040 /* Extensions.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				07E734941E32E1AA00444EB1 /* TXViewController.swift in Sources */,
 				07E734851E326B5A00444EB1 /* TXResponse.swift in Sources */,
 				07E7347D1E3174DE00444EB1 /* BudgetCategory.swift in Sources */,
+				0C15BB961EBE8DD400F60040 /* Extensions.swift in Sources */,
 				07E7348E1E32C71F00444EB1 /* CategoriesViewController.swift in Sources */,
 				07E734961E32E63000444EB1 /* TransactionsViewController.swift in Sources */,
 				07E734921E32DBD900444EB1 /* CategoryTableViewCell.swift in Sources */,

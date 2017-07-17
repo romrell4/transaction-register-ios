@@ -115,6 +115,7 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		self.navBarShade?.removeFromSuperview()
 		self.backgroundShade?.removeFromSuperview()
 		
+        //TODO: Don't reload the data from the service... Just modify the row and redraw that row...?
 		if changes {
 			self.loadData()
 		}

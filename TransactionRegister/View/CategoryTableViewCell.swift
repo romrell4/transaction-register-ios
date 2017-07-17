@@ -14,8 +14,8 @@ enum CategoryProperty {
 }
 
 class CategoryTableViewCell: UITableViewCell {
-	@IBOutlet weak private var nameLabel: UILabel!
-	@IBOutlet weak private var amountSpentLabel: UILabel!
+	@IBOutlet private weak var nameLabel: UILabel!
+	@IBOutlet private weak var amountSpentLabel: UILabel!
 	
 	func setup(category: BudgetCategory, mainProperty: CategoryProperty) -> Void {
 		switch mainProperty {

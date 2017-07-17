@@ -8,17 +8,13 @@
 
 import UIKit
 
-class TransactionTableViewCell: UITableViewCell {
-	private static let dateFormat: DateFormatter = {
-		let format = DateFormatter()
-		format.dateFormat = "MMM dd, yyyy"
-		return format
-	}()
+private let DATE_FORMAT = DateFormatter(format: "MMM dd, yyyy")
 
-	@IBOutlet weak private var businessLabel: UILabel!
-	@IBOutlet weak private var dateLabel: UILabel!
-	@IBOutlet weak private var amountLabel: UILabel!
-	@IBOutlet weak private var categoryLabel: UILabel!
+class TransactionTableViewCell: UITableViewCell {
+	@IBOutlet private weak var businessLabel: UILabel!
+	@IBOutlet private weak var dateLabel: UILabel!
+	@IBOutlet private weak var amountLabel: UILabel!
+	@IBOutlet private weak var categoryLabel: UILabel!
 	
 	var transaction: Transaction? {
 		didSet {
@@ -27,11 +23,11 @@ class TransactionTableViewCell: UITableViewCell {
 			}
 			
 			self.businessLabel.text = transaction.business
-			self.dateLabel.text = TransactionTableViewCell.dateFormat.string(from: transaction.purchaseDate!)
+			self.dateLabel.text = DATE_FORMAT.string(from: transaction.purchaseDate!)
 			self.amountLabel.text = transaction.amount?.formattedValue()
 			self.categoryLabel.text = transaction.categoryName
 			
-			if transaction.desc != nil && transaction.desc!.hasPrefix("?") {
+            if let tmp = transaction.desc, tmp.hasPrefix("?") {
 				self.backgroundColor = UIColor.warningColor
 			} else {
 				self.backgroundColor = nil
