@@ -9,14 +9,14 @@
 import UIKit
 
 protocol PopUpDelegate {
-	func popUpDismissed(changes: Bool)
+	func popUpDismissed(tx: Transaction?)
 }
 
 private let TOOLBAR_HEIGHT: CGFloat = 44.0
 private let DATE_FORMAT = DateFormatter(format: "MM/dd/yyyy")
 
 class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
-	var delegate: PopUpDelegate?
+	var delegate: PopUpDelegate!
 	var defaultPaymentType: PaymentType?
 	var transaction: Transaction?
 	
@@ -154,8 +154,8 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 			
 			func callback(transaction: Transaction?, error: TXError?) {
 				self.spinner.stopAnimating()
-				if error == nil {
-					self.dismissPopUp(changes: true)
+				if let transaction = transaction {
+					self.dismissPopUp(tx: transaction)
 				} else {
 					self.showError(error: error!)
 				}
@@ -176,7 +176,7 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 	}
 	
 	@IBAction func cancelTapped(_ sender: Any) {
-		self.dismissPopUp(changes: false)
+        self.dismissPopUp(tx: nil)
 	}
 	
 	func nextTapped() {
@@ -261,8 +261,8 @@ class AddTransactionPopUpViewController: TXViewController, UITextFieldDelegate, 
 		return tx
 	}
 	
-	private func dismissPopUp(changes: Bool) {
-		self.delegate?.popUpDismissed(changes: changes)
+	private func dismissPopUp(tx: Transaction?) {
+		delegate.popUpDismissed(tx: tx)
 		self.dismiss(animated: true, completion: nil)
 	}
 }

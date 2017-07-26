@@ -16,8 +16,8 @@ class CategoriesViewController: TXViewController, UITableViewDataSource, UITable
 	@IBOutlet weak private var spinner: UIActivityIndicatorView!
 	@IBOutlet weak private var tableView: UITableView!
 	
-	private var categories : [BudgetCategory] = []
-	private var filterDates : [Date] = []
+	private var categories = [BudgetCategory]()
+	private var filterDates = [Date]()
 	private var currentFilterDate = Date()
 
     override func viewDidLoad() {

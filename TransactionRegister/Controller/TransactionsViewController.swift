@@ -19,13 +19,14 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 		refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
 		return refreshControl
 	}()
-	private var transactions: [Transaction] = []
-	private var sums: [PaymentTypeSum] = []
+	private var transactions = [Transaction]()
+	private var sums = [PaymentTypeSum]()
 	private var navBarShade: UIView?
 	private var backgroundShade: UIView?
 	private var countdown: Int = 0
 	private var currentFilter: PaymentType?
 	private var currentDate = Date()
+    private var selectedIndexPath: IndexPath?
     
     //TODO: Add swipe to delete
 
@@ -106,19 +107,22 @@ class TransactionsViewController: TXViewController, UITableViewDataSource, UITab
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
+        selectedIndexPath = indexPath
 	}
 	
 	//MARK: PopUpDelegate callback
 	
-	func popUpDismissed(changes: Bool) {
-		self.navBarShade?.removeFromSuperview()
-		self.backgroundShade?.removeFromSuperview()
-		
-        //TODO: Don't reload the data from the service... Just modify the row and redraw that row...?
-		if changes {
-			self.loadData()
+	func popUpDismissed(tx: Transaction?) {
+		navBarShade?.removeFromSuperview()
+		backgroundShade?.removeFromSuperview()
+        
+        guard let indexPath = selectedIndexPath else { return }
+        if let tx = tx {
+            transactions[indexPath.row] = tx
 		}
+        
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        selectedIndexPath = nil
 	}
 	
 	//MARK: Listeners

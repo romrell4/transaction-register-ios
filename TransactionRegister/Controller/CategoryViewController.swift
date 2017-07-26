@@ -9,7 +9,7 @@
 import UIKit
 
 class CategoryViewController: TXViewController {
-	var category: BudgetCategory?
+	var category: BudgetCategory!
 
     override func viewDidLoad() {
         super.viewDidLoad()
